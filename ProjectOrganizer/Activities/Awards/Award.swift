@@ -5,16 +5,19 @@
 //  Created by Matthew Garlington on 3/18/21.
 //
 
-import SwiftUI
+import Foundation
 
-struct Award: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-struct Award_Previews: PreviewProvider {
-    static var previews: some View {
-        Award()
-    }
+struct Award: Decodable, Identifiable {
+    
+    var id: String { name }
+    let name: String
+    let description: String
+    let color: String
+    let criterion: String
+    let value: Int
+    let image: String
+    static let allAwards = Bundle.main.decode([Award].self, from: "Awards.json")
+    static let example = allAwards[0]
+    
 }
