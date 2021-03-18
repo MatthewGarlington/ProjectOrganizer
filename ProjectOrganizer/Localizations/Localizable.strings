@@ -5,3 +5,109 @@
   Created by Matthew Garlington on 3/18/21.
   
 */
+
+
+
+"%@" = "%@";
+
+"Are you sure you want to delete this project? You will also delete all the items within the project it contains." = "Are you sure you want to delete this project? You will also delete all the items within the project it contains.";
+
+"Awards" = "Awards";
+
+"Basic Settings" = "Basic Settings";
+
+
+"Closed" = "Closed";
+
+"Closing a project moves it from the open to closed tab, deleting it removes the project entirely" = "Closing a project moves it from the open to closed tab, deleting it removes the project entirely";
+
+
+"Creation Date" = "Creation Date";
+
+
+"Custom project color" = "Custom project color";
+
+
+"Delete" = "Delete";
+
+
+"Delete Project?" = "Delete Project?";
+
+
+"Description" = "Description";
+
+
+"Description of this Project" = "Description of this Project";
+
+
+"High" = "High";
+
+
+"Home" = "Home";
+
+
+"Item name" = "Item name";
+
+
+"Locked" = "Locked";
+
+
+"Low" = "Low";
+
+
+"Medium" = "Medium";
+
+
+"Ok" = "Ok";
+
+
+"Open" = "Open";
+
+
+"Optimized" = "Optimized";
+
+
+"Please select something from the menu to begin" = "Please select something from the menu to begin";
+
+
+"Priority" = "Priority";
+
+
+"Project name" = "Project name";
+
+
+"Sort Items" = "Sort Items";
+
+
+"Sort items" = "Sort items";
+
+
+"There's nothing here right now" = "There's nothing here right now";
+
+
+"Title" = "Title";
+
+
+"Unlocked %@" = "Unlocked %@";
+
+"Open Projects" = "Open Projects";
+
+"Closed Projects" = "Closed Projects";
+
+"Add Project" = "Add Project";
+
+"Sort" = "Sort";
+
+"Add new Item" = "Add new Item";
+"Edit Item" = "Edit Item";
+"Mark Completed" = "Mark Completed";
+"Edit Project" = "Edit Project";
+"Close this project" = "Close this project";
+"Reopen this project" = "Reopen this project";
+"Delete this project" = "Delete this project";
+"up next" = "up next";
+"More to explore" = "More to explore";
+
+"New Project" = "New Project";
+"New Item" = "New Item";
+
