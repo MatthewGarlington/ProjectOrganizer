@@ -1,32 +1,22 @@
 //
 //  ProjectOrganizerTests.swift
-//  ProjectOrganizer
+//  ProjectOrganizerTests
 //
 //  Created by Matthew Garlington on 3/18/21.
 //
 
+import CoreData
 import XCTest
+@testable import ProjectOrganizer
 
-class ProjectOrganizerTests: XCTestCase {
-
+class BaseTestCase: XCTestCase {
+    var dataController: DataController!
+    var managedObjectContext: NSManagedObjectContext!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        dataController = DataController(inMemory: true)
+        managedObjectContext = dataController.container.viewContext
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+   
 }
+
