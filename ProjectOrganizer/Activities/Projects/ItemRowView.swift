@@ -26,6 +26,11 @@ struct ItemRowView: View {
     }
     
     var body: some View {
+        ZStack {
+            Spacer()
+                .frame(width: 300, height: 50)
+                .background(Color.black.opacity(0.4))
+                .cornerRadius(15)
         NavigationLink(destination: EditItemView(item: item)) {
             Label {
                 Text(item.itemTitle)
@@ -33,6 +38,8 @@ struct ItemRowView: View {
                 icon
             }
         }
+        }
+        
     }
 }
 
