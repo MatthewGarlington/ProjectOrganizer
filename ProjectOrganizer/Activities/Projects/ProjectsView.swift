@@ -33,7 +33,9 @@ struct ProjectsView: View {
         
     
       
-        List {
+//        List {
+        ScrollView {
+        VStack {
             ForEach(projects.wrappedValue) { project in
                 Section(header: ProjectHeaderView(project: project)) {
                     ForEach(project.projectItems(using: sortOrder)) { item in
@@ -55,7 +57,8 @@ struct ProjectsView: View {
             }
           //  .listRowBackground(BlurView(style: .systemUltraThinMaterial))
         }
-        .listStyle(InsetGroupedListStyle())
+        }
+      //  .listStyle(InsetGroupedListStyle())
      
     }
        
