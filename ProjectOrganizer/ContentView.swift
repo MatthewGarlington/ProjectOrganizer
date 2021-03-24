@@ -12,7 +12,9 @@ import SwiftUI
 /// and awards that the user has earned
 struct ContentView: View {
     @SceneStorage("selectedView") var selectedView: String?
-    
+    init() {
+        UITabBar.appearance().barTintColor = UIColor.init(ciColor: .clear)
+     }
     
     var body: some View {
         TabView(selection: $selectedView) {
@@ -41,6 +43,7 @@ struct ContentView: View {
                     Text("Awards")
                 }
         }
+        .accentColor(Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)))
     }
 }
 
