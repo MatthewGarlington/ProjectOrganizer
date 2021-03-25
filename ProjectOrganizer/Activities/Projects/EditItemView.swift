@@ -29,6 +29,7 @@ struct EditItemView: View {
                 // The onChange modifier adds a call to the create extension of Binding-onChange which stores the data
                 TextField("Item name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
+                
             }
             Section(header: Text("Priority")) {
                 Picker("Priority", selection: $priority.onChange(update)) {
@@ -37,12 +38,17 @@ struct EditItemView: View {
                     Text("High").tag(3)
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                
             }
             Section {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
+                
             }
+            
+            
         }
         .navigationTitle("Edit Item")
+       
         // Call save to Core Data when view goes away
         .onDisappear(perform: dataController.save)
     }
@@ -59,5 +65,6 @@ struct EditItemView: View {
 struct EditItemView_Previews: PreviewProvider {
     static var previews: some View {
         EditItemView(item: Item.example)
+            .environmentObject(DataController())
     }
 }
