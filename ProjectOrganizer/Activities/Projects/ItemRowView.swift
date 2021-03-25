@@ -26,17 +26,24 @@ struct ItemRowView: View {
     }
     
     var body: some View {
-        ZStack {
-            Spacer()
-                .frame(width: 300, height: 50)
-                .background(Color.black.opacity(0.4))
-                .cornerRadius(15)
         NavigationLink(destination: EditItemView(item: item)) {
+            ZStack(alignment: .leading) {
+//            Spacer()
+//                .frame(width: 350, height: 50)
+//                .background(BlurView(style: .systemThinMaterial))
+//                .cornerRadius(15)
+    //    NavigationLink(destination: EditItemView(item: item)) {
             Label {
                 Text(item.itemTitle)
+                //    .foregroundColor(.white)
+              
             } icon: {
                 icon
+                  //  .font(.title)
+                
             }
+            .padding()
+            
         }
         }
         
