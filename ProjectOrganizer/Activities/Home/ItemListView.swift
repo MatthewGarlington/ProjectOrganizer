@@ -32,7 +32,7 @@ struct ItemListView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             if item.itemDetail.isEmpty == false {
                                 Text(item.itemDetail)
-                                    .foregroundColor(.secondary )
+                                    .foregroundColor(.secondary)
                             }
                         }
                     }
@@ -40,6 +40,10 @@ struct ItemListView: View {
                     .background(BlurView(style: .systemUltraThinMaterialLight))
                     .cornerRadius(10)
                     .shadow(color: Color.black.opacity(0.2), radius: 5)
+                    .overlay(
+                         RoundedRectangle(cornerRadius: 10)
+                             .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.purple]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                     )
                 }
             }
         }
@@ -51,3 +55,12 @@ struct ItemListView: View {
 //        ItemListView()
 //    }
 //}
+
+extension View {
+    public func gradientForeground(colors: [Color]) -> some View {
+        self.overlay(LinearGradient(gradient: .init(colors: colors),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing))
+            .mask(self)
+    }
+}
