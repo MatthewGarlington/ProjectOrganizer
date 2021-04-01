@@ -17,7 +17,7 @@ struct ItemListView: View {
         } else {
             Text(title)
                 .font(.headline)
-                .foregroundColor(.secondary)
+                .foregroundColor(.white)
                 .padding(.top)
             ForEach(items) { item in
                 NavigationLink(destination: EditItemView(item: item)) {
