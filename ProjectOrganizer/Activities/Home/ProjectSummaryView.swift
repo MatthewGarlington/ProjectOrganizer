@@ -20,7 +20,7 @@ struct ProjectSummaryView: View {
                 .accentColor(Color(project.projectColor))
         }
         .padding()
-        .background(BlurView(style: .systemMaterialLight))
+        .background(BlurView(style: .systemThickMaterial))
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(0.2), radius: 5)
         .padding(5)
