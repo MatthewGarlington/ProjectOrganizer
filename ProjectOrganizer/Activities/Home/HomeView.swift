@@ -93,7 +93,7 @@ struct HomeBackGround: View {
             
             AngularGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8472073078, green: 0.4155753255, blue: 0.6355627775, alpha: 1)), Color(#colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1))]), center: .center, angle: .degrees(120))
             
-            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.1), Color.black.opacity(0.3)]), startPoint: .bottom, endPoint: .top)
+            LinearGradient(gradient: Gradient(colors: [Color("Background 1").opacity(0.4), Color("Background 1").opacity(0.7)]), startPoint: .bottom, endPoint: .top)
             ZStack {
                 Image("Blob4")
                     .resizable()
