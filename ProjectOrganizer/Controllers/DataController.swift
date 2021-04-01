@@ -38,6 +38,7 @@ class DataController: ObservableObject {
             #if DEBUG
             if CommandLine.arguments.contains("enable-testing") {
                 self.deleteAll()
+                UIView.setAnimationsEnabled(false)
             }
             #endif
         }

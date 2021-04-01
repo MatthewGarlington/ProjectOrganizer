@@ -45,4 +45,61 @@ class ProjectOrganizerUITests: XCTestCase {
         app.buttons["Add new Item"].tap()
         XCTAssertEqual(app.tables.cells.count, 2, "There should be 2 list row after adding a Items")
     }
+    
+//    func testingEditingProjectUpdatesCorrectly() {
+//        app.buttons["Open"].tap()
+//        XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
+//
+//        app.buttons["add"].tap()
+//        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a project")
+//
+//        app.buttons["NEW PROJECT"].tap()
+//        app.textFields["Project name"].tap()
+//
+//        app.keys["space"].tap()
+//        app.keys["more"].tap()
+//        app.keys["2"].tap()
+//        app.buttons["Return"].tap()
+//
+//        app.buttons["Open Projects"].tap()
+//        XCTAssertTrue(app.buttons["NEW PROJECT 2"].exists, "The new project name should be visible in the list")
+//
+//    }
+    
+    
+//    func testingEditingItemUpdatesCorrectly() {
+//        app.buttons["Open"].tap()
+//        XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
+//
+//        app.buttons["add"].tap()
+//        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a project")
+//
+//        app.buttons["Add new Item"].tap()
+//        XCTAssertEqual(app.tables.cells.count, 2, "There should be 2 list row after adding an item.")
+//
+//        app.buttons["New Item"].tap()
+//        app.textFields["Item name"].tap()
+//
+//        app.keys["space"].tap()
+//        app.keys["more"].tap()
+//        app.keys["2"].tap()
+//        app.buttons["Return"].tap()
+//
+//        app.buttons["Open Projects"].tap()
+//        XCTAssertTrue(app.buttons["New Item 2"].exists, "The new Item name should be visible in the list")
+//
+//    }
+//
+    
+    func testAllAwardsShowLockedAlert() {
+        app.buttons["Awards"].tap()
+        
+        for award in app.scrollViews.buttons.allElementsBoundByIndex {
+            award.tap()
+            
+            XCTAssertTrue(app.alerts["Locked"].exists, "There should be a locked alert showing for awards.")
+            app.buttons["Ok"].tap()
+        }
+        
+    }
 }
