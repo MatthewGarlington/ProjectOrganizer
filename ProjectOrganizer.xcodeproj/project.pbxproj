@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B8EE78F2617776500F95B9A /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8EE78E2617776500F95B9A /* ProjectsViewModel.swift */; };
 		6BC00F112603DD9700C76453 /* ProjectOrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC00F102603DD9700C76453 /* ProjectOrganizerApp.swift */; };
 		6BC00F132603DD9700C76453 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC00F122603DD9700C76453 /* ContentView.swift */; };
 		6BC00F152603DD9900C76453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC00F142603DD9900C76453 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B8EE78E2617776500F95B9A /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		6BC00F0D2603DD9700C76453 /* ProjectOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC00F102603DD9700C76453 /* ProjectOrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOrganizerApp.swift; sourceTree = "<group>"; };
 		6BC00F122603DD9700C76453 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				6BC00F2C2603E37D00C76453 /* ProjectsView.swift */,
+				6B8EE78E2617776500F95B9A /* ProjectsViewModel.swift */,
 				6BC00F2E2603E39100C76453 /* SelectSomethingView.swift */,
 				6BC00F302603E39F00C76453 /* ProjectHeaderView.swift */,
 				6BC00F322603E3AE00C76453 /* ItemRowView.swift */,
@@ -428,6 +431,7 @@
 				6BC00F2D2603E37D00C76453 /* ProjectsView.swift in Sources */,
 				6BC00F272603E33300C76453 /* HomeView.swift in Sources */,
 				6BC00F332603E3AE00C76453 /* ItemRowView.swift in Sources */,
+				6B8EE78F2617776500F95B9A /* ProjectsViewModel.swift in Sources */,
 				6BC00F532603E69E00C76453 /* Binding-OnChange.swift in Sources */,
 				6BC00F4F2603E67900C76453 /* Blur-Extension.swift in Sources */,
 				6BC00F2B2603E36200C76453 /* ProjectSummaryView.swift in Sources */,
