@@ -100,6 +100,5 @@ class ProjectOrganizerUITests: XCTestCase {
             XCTAssertTrue(app.alerts["Locked"].exists, "There should be a locked alert showing for awards.")
             app.buttons["Ok"].tap()
         }
-        
     }
 }
