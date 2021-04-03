@@ -26,6 +26,7 @@ struct HomeView: View {
    
     
     @State var show = false
+    @State var showAwardsModal = false
     
     var body: some View {
         NavigationView {
@@ -46,16 +47,23 @@ struct HomeView: View {
                         }
                         .padding(.horizontal)
                     }
-                }
-              
-             
-                .toolbar {
-                    Button("Add Data", action: viewModel.addSampleData)
-                        
+                    .sheet(isPresented: $showAwardsModal) {
+                        AwardsView()
                     }
-               
+                
+                }
+//
+//                .toolbar {
+//                    Button("Add Data", action: viewModel.addSampleData)
+//                    }
+            .toolbar {
+                Button(action: {
+                    self.showAwardsModal = true
+                }, label: {
+                   Image(systemName: "rosette")
+                })
+                }
             }
-
         .navigationBarTitle("Home")
 
         }
