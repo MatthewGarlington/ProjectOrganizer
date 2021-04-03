@@ -43,7 +43,7 @@ extension ProjectsView {
                 projects = projectController.fetchedObjects ?? []
                 
             } catch {
-                print("Failed to fetch our projects")
+                print("Failed to fetch our Recipes")
             }
         
         }
