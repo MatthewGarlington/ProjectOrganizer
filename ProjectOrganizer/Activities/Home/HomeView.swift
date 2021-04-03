@@ -55,9 +55,11 @@ struct HomeView: View {
                     }
                
             }
-           
-        }
+        
         .navigationBarTitle("Home")
+
+        }
+
     }
     
 }
