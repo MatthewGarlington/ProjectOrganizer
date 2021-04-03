@@ -55,13 +55,11 @@ struct HomeView: View {
                     }
                
             }
-        
+
         .navigationBarTitle("Home")
 
         }
-
     }
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
