@@ -26,7 +26,7 @@ class ProjectOrganizerUITests: XCTestCase {
     }
     
     func testOpenTabAddsProjects() {
-        app.buttons["Open"].tap()
+        app.buttons["To Get"].tap()
         XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
         
         for tapCount in 1...5 {
@@ -36,13 +36,13 @@ class ProjectOrganizerUITests: XCTestCase {
     }
     
     func testAddingItemInsertsRows() {
-        app.buttons["Open"].tap()
+        app.buttons["To Get"].tap()
         XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
         
         app.buttons["add"].tap()
         XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a project")
         
-        app.buttons["Add new Item"].tap()
+        app.buttons["Add New Ingredient"].tap()
         XCTAssertEqual(app.tables.cells.count, 2, "There should be 2 list row after adding a Items")
     }
     
