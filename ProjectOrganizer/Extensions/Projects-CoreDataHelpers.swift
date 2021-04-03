@@ -33,7 +33,7 @@ extension Project {
         detail ?? ""
     }
     var projectColor: String {
-        color ?? "Pink"
+        color ?? "Purple"
     }
     var projectItems: [Item]  {
         items?.allObjects as? [Item] ?? []
