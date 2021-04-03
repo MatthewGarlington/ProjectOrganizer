@@ -13,7 +13,7 @@ extension Item {
         case optimized, title, creationDate
     }
     var itemTitle: String {
-        title ?? NSLocalizedString("New Item", comment: "Add a new New Item")
+        title ?? NSLocalizedString("New Ingredient", comment: "Add a new New ingredient")
     }
     var itemDetail: String {
         detail ?? ""
@@ -25,8 +25,8 @@ extension Item {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext
         let item = Item(context: viewContext)
-        item.title = "Example Item"
-        item.detail = "This is an example item"
+        item.title = "Example Ingredient"
+        item.detail = "This is an example ingredient"
         item.priority = 3
         item.creationDate = Date()
         
