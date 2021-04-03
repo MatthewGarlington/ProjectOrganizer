@@ -27,7 +27,7 @@ struct EditItemView: View {
         Form {
             Section(header: Text("Basic Settings")) {
                 // The onChange modifier adds a call to the create extension of Binding-onChange which stores the data
-                TextField("Item name", text: $title.onChange(update))
+                TextField("Ingredient name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
                 
             }
@@ -47,7 +47,7 @@ struct EditItemView: View {
             
             
         }
-        .navigationTitle("Edit Item")
+        .navigationTitle("Edit Ingredient")
        
         // Call save to Core Data when view goes away
         .onDisappear(perform: dataController.save)
