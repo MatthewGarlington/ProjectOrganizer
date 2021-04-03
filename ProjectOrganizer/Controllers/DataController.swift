@@ -73,14 +73,14 @@ class DataController: ObservableObject {
         for i in 1...5 {
             
             let project = Project(context: viewContext)
-            project.title = "Project: \(i)"
+            project.title = "Recipe: \(i)"
             project.items = []
             project.creationDate = Date()
             project.closed = Bool.random()
             
             for j in 1...10 {
                 let item = Item(context: viewContext)
-                item.title = "Item \(j)"
+                item.title = "Ingredient \(j)"
                 item.creationDate = Date()
                 item.completed = Bool.random()
                 item.project = project
