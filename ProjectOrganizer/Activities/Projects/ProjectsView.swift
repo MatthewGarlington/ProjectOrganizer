@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProjectsView: View {
-    static let openTag: String? = "Open"
-    static let closedTag: String? = "Closed"
+    static let openTag: String? = "To Get"
+    static let closedTag: String? = "Already Bought"
     
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
@@ -41,7 +41,7 @@ struct ProjectsView: View {
                             viewModel.addItem(to: project)
                             }
                         } label: {
-                            Label("Add new Item", systemImage: "plus")
+                            Label("Add New Ingredient", systemImage: "plus")
                         }
                         
                     }
@@ -68,7 +68,7 @@ struct ProjectsView: View {
                         viewModel.addProject()
                     }
                     } label: {
-                    Label("Add Project", systemImage: "plus")
+                    Label("Add Recipe", systemImage: "plus")
                 }
             }
         }
@@ -95,7 +95,7 @@ struct ProjectsView: View {
                     projectsList
                 }
             }
-            .navigationTitle(viewModel.showClosedProjects ? "Closed Projects" : "Open Projects")
+            .navigationTitle(viewModel.showClosedProjects ? "Already Bought" : "To Get")
             .toolbar {
                 addProjectToolbarItem
                 sortOrderToolbarItem
