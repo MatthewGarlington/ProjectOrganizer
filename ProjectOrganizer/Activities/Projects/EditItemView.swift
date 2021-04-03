@@ -61,7 +61,7 @@ struct EditItemView: View {
         item.completed = completed
     }
 }
-
+ 
 struct EditItemView_Previews: PreviewProvider {
     static var previews: some View {
         EditItemView(item: Item.example)
