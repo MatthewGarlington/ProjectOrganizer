@@ -38,12 +38,12 @@ struct ContentView: View {
                     Image(systemName: "checkmark")
                     Text("Already Bought")
                 }
-            AwardsView()
-                .tag(AwardsView.tag)
-                .tabItem {
-                    Image(systemName: "rosette")
-                    Text("Awards")
-                }
+//            AwardsView()
+//                .tag(AwardsView.tag)
+//                .tabItem {
+//                    Image(systemName: "rosette")
+//                    Text("Awards")
+//                }
         }
         .accentColor(Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)))
     }
