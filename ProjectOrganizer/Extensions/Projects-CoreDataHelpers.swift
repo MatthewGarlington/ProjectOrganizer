@@ -27,13 +27,13 @@ extension Project {
                          "Gray"]
     
     var projectTitle: String {
-        title ?? NSLocalizedString("New Project", comment: "Create a new project")
+        title ?? NSLocalizedString("New Recipe", comment: "Create a new recipe")
     }
     var projectDetail: String {
         detail ?? ""
     }
     var projectColor: String {
-        color ?? "Light Blue"
+        color ?? "Pink"
     }
     var projectItems: [Item]  {
         items?.allObjects as? [Item] ?? []
@@ -67,8 +67,8 @@ extension Project {
         let controller = DataController.preview
         let viewContext = controller.container.viewContext
         let project = Project(context: viewContext)
-        project.title = "Example Project"
-        project.detail = "This is an example project"
+        project.title = "Example Recipe"
+        project.detail = "This is an example recipe"
         project.closed = true
         project.creationDate = Date()
         
