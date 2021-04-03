@@ -8,45 +8,30 @@
 import SwiftUI
 
 struct ItemRowView: View {
-    @ObservedObject var project: Project
+    @StateObject var viewModel: ViewModel
     @ObservedObject var item: Item
-    
-    var icon: some View {
-        
-        if item.completed {
-            return Image(systemName: "checkmark.circle")
-                .foregroundColor(Color(project.projectColor))
-        } else if item.priority == 3 {
-            return Image(systemName: "exclamationmark.triangle")
-                .foregroundColor(Color(project.projectColor))
-        } else {
-            return Image(systemName: "checkmark.circle")
-                .foregroundColor(.clear)
-        }
-    }
+  
     
     var body: some View {
         NavigationLink(destination: EditItemView(item: item)) {
             ZStack(alignment: .leading) {
-//            Spacer()
-//                .frame(width: 350, height: 50)
-//                .background(BlurView(style: .systemThinMaterial))
-//                .cornerRadius(15)
-    //    NavigationLink(destination: EditItemView(item: item)) {
-            Label {
-                Text(item.itemTitle)
-                //    .foregroundColor(.white)
-              
-            } icon: {
-                icon
-                  //  .font(.title)
-                
+                Label {
+                    Text(item.itemTitle)
+                    
+                } icon: {
+                    Image(systemName: viewModel.icon)
+                        .foregroundColor(viewModel.color.map { Color($0) } ?? .clear)
+                }
+                .padding()
             }
-            .padding()
-            
         }
-        }
+    }
+    
+    init(project: Project, item: Item) {
+        let viewModel = ViewModel(project: project, item: item)
+        _viewModel = StateObject(wrappedValue: viewModel)
         
+        self.item = item
     }
 }
 
