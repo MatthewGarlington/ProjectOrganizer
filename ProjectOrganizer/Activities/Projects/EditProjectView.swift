@@ -39,30 +39,30 @@ struct EditProjectView: View {
         Form {
             // section 1 (Basic Settings)
             Section(header: Text("Basic Settings")) {
-                TextField("Project name", text: $title.onChange(update))
-                TextField("Description of this Project", text: $detail.onChange(update))
+                TextField("Recipe name", text: $title.onChange(update))
+                TextField("Description of this Recipe", text: $detail.onChange(update))
             }
             // section 2 (Color picker)
-            Section(header: Text("Custom project color")) {
+            Section(header: Text("Custom recipe color")) {
                 LazyVGrid(columns: colorColums) {
                     ForEach(Project.colors, id: \.self, content: colorButton)
                 }
                 .padding(.vertical)
             }
             // section 3
-            Section(footer: Text("Closing a project moves it from the open to closed tab, deleting it removes the project entirely")) {
-                Button(project.closed ? "Reopen this project" : "Close this project", action: toggleClosed)
-                Button("Delete this project") {
+            Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
+                Button(project.closed ? "Reopen this Recipe" : "Close this recipe", action: toggleClosed)
+                Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
                 }
                 .accentColor(.red)
             }
         }
-        .navigationTitle("Edit Project")
+        .navigationTitle("Edit Recipe")
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $showingDeleteConfirm) {
-            Alert(title: Text("Delete Project?"),
-                  message: Text("Are you sure you want to delete this project? You will also delete all the items within the project it contains."),
+            Alert(title: Text("Delete Recipe?"),
+                  message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
                   primaryButton: .default(Text("Delete"),
                                           action: delete),
                   secondaryButton: .cancel())
