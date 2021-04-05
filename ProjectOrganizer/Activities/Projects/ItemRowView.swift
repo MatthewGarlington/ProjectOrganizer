@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemRowView: View {
     @StateObject var viewModel: ViewModel
     @ObservedObject var item: Item
+    @State private var offset: CGSize = .zero
   
     
     var body: some View {
@@ -24,6 +25,10 @@ struct ItemRowView: View {
                 }
                 .padding()
             }
+
+        }
+        .onLongPressGesture {
+            item.completed.toggle()
         }
     }
     
