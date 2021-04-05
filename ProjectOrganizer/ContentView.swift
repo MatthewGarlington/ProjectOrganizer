@@ -30,22 +30,22 @@ struct ContentView: View {
                 .tag(ProjectsView.openTag)
                 .tabItem {
                     Image(systemName: "list.bullet")
-                    Text("To Get")
+                    Text("Shopping List")
                 }
             ProjectsView(dataController: dataController, showClosedProjects: true)
                 .tag(ProjectsView.closedTag)
                 .tabItem {
                     Image(systemName: "checkmark")
-                    Text("Already Bought")
+                    Text("Purchased")
                 }
-//            AwardsView()
-//                .tag(AwardsView.tag)
-//                .tabItem {
-//                    Image(systemName: "rosette")
-//                    Text("Awards")
-//                }
+            SavedRecipeView(dataController: dataController, showSavedProjects: true)
+                .tag(SavedRecipeView.savedTag)
+                .tabItem {
+                    Image(systemName: "star")
+                    Text("Saved Recipes")
+                }
         }
-        .accentColor(Color(#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)))
+        .accentColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
     }
 }
 
