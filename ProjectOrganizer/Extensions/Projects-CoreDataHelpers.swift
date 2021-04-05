@@ -33,7 +33,7 @@ extension Project {
         detail ?? ""
     }
     var projectColor: String {
-        color ?? "Purple"
+        color ?? "Green"
     }
     var projectItems: [Item]  {
         items?.allObjects as? [Item] ?? []
@@ -70,6 +70,7 @@ extension Project {
         project.title = "Example Recipe"
         project.detail = "This is an example recipe"
         project.closed = true
+        project.saved = true 
         project.creationDate = Date()
         
         return project
