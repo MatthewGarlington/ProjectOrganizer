@@ -51,7 +51,10 @@ struct EditProjectView: View {
             }
             // section 3
             Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
-                Button(project.closed ? "Reopen this Recipe" : "Close this recipe", action: toggleClosed)
+                Button(project.closed ? "Add to Shopping List" : "Move To Purchased", action: toggleClosed)
+                Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
+                    project.saved.toggle()
+                }
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
                 }
