@@ -44,7 +44,8 @@ struct ContentView: View {
                     Image(systemName: "star")
                     Text("Saved Recipes")
                 }
-            RecipesForTheWeekView()
+            RecipesForTheWeekView(dataController: dataController, mealsThisWeek: true)
+                .tag(RecipesForTheWeekView.weekList)
                 .tabItem {
                     Image(systemName: "calendar.circle")
                     Text("Week")
