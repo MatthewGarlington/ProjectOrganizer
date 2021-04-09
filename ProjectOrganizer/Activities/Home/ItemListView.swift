@@ -10,6 +10,12 @@ import SwiftUI
 struct ItemListView: View {
     let title: LocalizedStringKey
     let items: ArraySlice<Item>
+
+
+    @EnvironmentObject var dataController: DataController
+    
+
+    @State private var completeItem = false
     
     var body: some View {
         if items.isEmpty {
@@ -22,9 +28,18 @@ struct ItemListView: View {
             ForEach(items) { item in
                 NavigationLink(destination: EditItemView(item: item)) {
                     HStack(spacing: 20) {
+                        Button(action: {
+                            item.completed.toggle()
+                        }, label: {
                         Circle()
                             .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
                             .frame(width: 44, height: 44)
+                            .overlay(
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(Color(item.project?.projectColor ?? "Light Blue").opacity(completeItem ? 1 : 0.0001))
+                                    .font(.system(size: 44))
+                            )
+                        })
                         VStack(alignment: .leading) {
                             Text(item.itemTitle)
                                 .font(.title2)
@@ -42,7 +57,7 @@ struct ItemListView: View {
                     .shadow(color: Color.black.opacity(0.2), radius: 5)
                     .overlay(
                          RoundedRectangle(cornerRadius: 10)
-                             .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.purple]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                            .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.green.opacity(0.4)]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
                      )
                 }
             }
