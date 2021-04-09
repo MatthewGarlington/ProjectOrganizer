@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B31AB842620982C004E240A /* RecipesForTheWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */; };
+		6B31AB862620BC62004E240A /* RecipesForTheWeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */; };
+		6B31AB882620C0C6004E240A /* RecipesForThisWeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */; };
+		6B31AB8A2620D458004E240A /* EditRecipeForThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */; };
 		6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850D12617A08000DDA49F /* HomeViewModel.swift */; };
 		6B5850D4261881B900DDA49F /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */; };
 		6B5850E0261A709000DDA49F /* SavedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850DF261A709000DDA49F /* SavedRecipeView.swift */; };
@@ -72,6 +76,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForTheWeekView.swift; sourceTree = "<group>"; };
+		6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForTheWeekViewModel.swift; sourceTree = "<group>"; };
+		6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForThisWeekHeaderView.swift; sourceTree = "<group>"; };
+		6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeForThisWeek.swift; sourceTree = "<group>"; };
 		6B5850D12617A08000DDA49F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		6B5850DF261A709000DDA49F /* SavedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeView.swift; sourceTree = "<group>"; };
@@ -161,6 +169,17 @@
 			path = SavedRecipe;
 			sourceTree = "<group>";
 		};
+		6B5850E72620872500DDA49F /* MealsThisWeek */ = {
+			isa = PBXGroup;
+			children = (
+				6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */,
+				6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */,
+				6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */,
+				6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */,
+			);
+			path = MealsThisWeek;
+			sourceTree = "<group>";
+		};
 		6BC00F042603DD9700C76453 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +229,7 @@
 		6BC00F222603E2EA00C76453 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
+				6B5850E72620872500DDA49F /* MealsThisWeek */,
 				6B5850DE261A704F00DDA49F /* SavedRecipe */,
 				6BC00F232603E30100C76453 /* Home */,
 				6BC00F242603E30A00C76453 /* Projects */,
@@ -465,12 +485,16 @@
 				6BC00F2F2603E39100C76453 /* SelectSomethingView.swift in Sources */,
 				6BC00F572603E7B900C76453 /* Projects-CoreDataHelpers.swift in Sources */,
 				6B5850D4261881B900DDA49F /* ItemRowViewModel.swift in Sources */,
+				6B31AB8A2620D458004E240A /* EditRecipeForThisWeek.swift in Sources */,
 				6BC00F552603E7A000C76453 /* Color-Additions.swift in Sources */,
 				6B5850E2261A70EF00DDA49F /* SavedRecipeViewModel.swift in Sources */,
 				6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */,
 				6BC00F3B2603E46300C76453 /* Award.swift in Sources */,
 				6BC00F132603DD9700C76453 /* ContentView.swift in Sources */,
+				6B31AB842620982C004E240A /* RecipesForTheWeekView.swift in Sources */,
 				6BC00F402603E4C300C76453 /* DataController.swift in Sources */,
+				6B31AB862620BC62004E240A /* RecipesForTheWeekViewModel.swift in Sources */,
+				6B31AB882620C0C6004E240A /* RecipesForThisWeekHeaderView.swift in Sources */,
 				6BC00F372603E3D000C76453 /* EditItemView.swift in Sources */,
 				6BC00F4A2603E61500C76453 /* Main.xcdatamodeld in Sources */,
 				6BC00F312603E39F00C76453 /* ProjectHeaderView.swift in Sources */,
