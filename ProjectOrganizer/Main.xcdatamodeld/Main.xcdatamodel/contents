@@ -12,9 +12,9 @@
         <attribute name="closed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="day" optional="YES" attributeType="String"/>
         <attribute name="detail" optional="YES" attributeType="String"/>
-        <attribute name="mealDay" optional="YES" attributeType="String"/>
-        <attribute name="mealType" optional="YES" attributeType="String"/>
+        <attribute name="mealsThisWeek" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="saved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="project" inverseEntity="Item"/>
