@@ -53,16 +53,18 @@ struct HomeView: View {
                 
                 }
 
-                .toolbar {
-                    Button("Add Data", action: viewModel.addSampleData)
-                    }
-//            .toolbar {
-//                Button(action: {
-//                    self.showAwardsModal = true
-//                }, label: {
-//                   Image(systemName: "rosette")
-//                })
-//                }
+//                .toolbar {
+//                    Button("Add Data", action: viewModel.addSampleData)
+//                    }
+            .toolbar {
+                Button(action: {
+                    self.showAwardsModal = true
+                }, label: {
+                   Image(systemName: "rosette")
+                })
+
+                
+                }
             }
         .navigationBarTitle("Home")
 
