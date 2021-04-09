@@ -17,16 +17,12 @@ struct EditProjectView: View {
     
     @State private var title: String
     @State private var detail: String
-    @State private var mealType: String
-    @State private var mealDay: String
+   
     @State private var color: String
     @State private var showingDeleteConfirm = false
+    @State private var mealsThisWeek = false
 
-    @State private var selectedMeal = "Dinner"
-    let meal = ["Breakfast", "Lunch" ,"Dinner"]
-
-    @State private var selectedWeekday = "Monday"
-    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  
 
     @State private var engine = try? CHHapticEngine()
     
@@ -41,8 +37,7 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
-        _mealType = State(wrappedValue: project.mealType ?? "Breakfast")
-        _mealDay = State(wrappedValue: project.mealDay ?? "Monday")
+     
         
     }
     
@@ -52,16 +47,9 @@ struct EditProjectView: View {
             Section(header: Text("Basic Settings")) {
                 TextField("Recipe name", text: $title.onChange(update))
                 TextField("Description of this Recipe", text: $detail.onChange(update))
-                Picker("Meal Type", selection: $mealType.onChange(update)) {
-                    ForEach(meal, id: \.self) {
-                        Text($0)
-                    }
-                }
-                Picker("Meal Day", selection: $mealDay.onChange(update)) {
-                    ForEach(weekDays, id: \.self) {
-                        Text($0)
-                    }
-                }
+             
+
+
        
             }
             // section 2 (Color picker)
@@ -77,6 +65,13 @@ struct EditProjectView: View {
                 Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
                     project.saved.toggle()
                 }
+
+                Button(project.mealsThisWeek ? "Remove From Meals for This Week" : "Move To Meals for This Week") {
+                    project.mealsThisWeek.toggle()
+                }
+
+
+         
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
                 }
@@ -98,8 +93,8 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
-        project.mealType = mealType
-        project.mealDay = mealDay
+
+        
     }
     
     func delete() {
