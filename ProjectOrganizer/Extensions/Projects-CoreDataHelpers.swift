@@ -25,6 +25,15 @@ extension Project {
                          "Midnight",
                          "Dark Gray",
                          "Gray"]
+
+   static let weekDays = ["No Day Selected",
+                          "Sunday",
+                          "Monday",
+                          "Tuesday",
+                          "Wednesday",
+                          "Thursday",
+                          "Friday",
+                          "Saturday"]
     
     var projectTitle: String {
         title ?? NSLocalizedString("New Recipe", comment: "Create a new recipe")
@@ -34,6 +43,9 @@ extension Project {
     }
     var projectColor: String {
         color ?? "Green"
+    }
+    var projectDay: String {
+        day ?? "Monday"
     }
     var projectItems: [Item]  {
         items?.allObjects as? [Item] ?? []
@@ -70,7 +82,7 @@ extension Project {
         project.title = "Example Recipe"
         project.detail = "This is an example recipe"
         project.closed = true
-        project.saved = true 
+        project.saved = true
         project.creationDate = Date()
         
         return project
