@@ -7,14 +7,37 @@
 
 import SwiftUI
 
+
 struct RecipesForThisWeekHeaderView: View {
+    @ObservedObject var project: Project
+    @State private var selectedWeekday = "No Day Selected"
+
+ 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(project.day ?? "No Day Selected")
+                    .foregroundColor(Color(project.projectColor))
+                    .font(.title)
+                    .bold()
+                ProgressView(value: project.completionAmount)
+                    .accentColor(Color(project.projectColor))
+            }
+            Spacer()
+
+            NavigationLink(destination: EditRecipeForThisWeek(project: project)) {
+                Image(systemName: "square.and.pencil")
+                    .imageScale(.large)
+            }
+        }
+        .padding(.bottom, 10)
+        .padding()
     }
 }
 
 struct RecipesForThisWeekHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipesForThisWeekHeaderView()
+        RecipesForThisWeekHeaderView(project: Project.example)
     }
 }
+
