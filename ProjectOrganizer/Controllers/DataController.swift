@@ -79,6 +79,8 @@ class DataController: ObservableObject {
             project.closed = Bool.random()
             project.saved = Bool.random()
             
+
+            
             for j in 1...10 {
                 let item = Item(context: viewContext)
                 item.title = "Ingredient \(j)"
