@@ -26,14 +26,7 @@ extension Project {
                          "Dark Gray",
                          "Gray"]
 
-   static let weekDays = ["No Day Selected",
-                          "Sunday",
-                          "Monday",
-                          "Tuesday",
-                          "Wednesday",
-                          "Thursday",
-                          "Friday",
-                          "Saturday"]
+
     
     var projectTitle: String {
         title ?? NSLocalizedString("New Recipe", comment: "Create a new recipe")
@@ -44,9 +37,11 @@ extension Project {
     var projectColor: String {
         color ?? "Green"
     }
-    var projectDay: String {
-        day ?? "Monday"
+    var projectMeal: String {
+        meal ?? "Breakfast"
     }
+
+
     var projectItems: [Item]  {
         items?.allObjects as? [Item] ?? []
     }
