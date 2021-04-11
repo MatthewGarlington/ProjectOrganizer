@@ -20,6 +20,7 @@ struct EditRecipeForMealView: View {
     @State private var color: String
     @State private var meal: String
     @State private var showingDeleteConfirm = false
+    @State private var showingClearConfirm = false
 
     @State private var engine = try? CHHapticEngine()
 
@@ -61,24 +62,42 @@ struct EditRecipeForMealView: View {
 
 
             // section 4
-            Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
-                Button("Move To Shopping List", action: toggleClosed)
-                Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
-                    project.saved.toggle()
+            Section(header: Text("Moving to the Shopping List moves The Recipe to the Shopping List tab")) {
+                Button(project.closed ? "Move to Shopping List" : "Move To Purchased") {
+                    toggleClosed()
                 }
 
-                Button(project.mealsThisWeek ? "Move to Unassigned" : "Move to Unassigned") {
-                    project.mealsThisWeek = true 
+                Button(action: {
+                    project.mealsThisWeek = true
                     project.sundayAssignment = false
                     project.mondayAssignment = false
                     project.tuesdayAssignment = false
                     project.wednesdayAssignment = false
                     project.thursdayAssignment = false
                     project.fridayAssignment = false
-                    project.saturdayAssignment = false 
-                }
+                    project.saturdayAssignment = false
 
-                Button("Delete this recipe") {
+                }, label: {
+
+                    HStack {
+                        Text(project.mealsThisWeek ? "Moved to Unassigned": "Move to Unassigned")
+                        Spacer()
+                        Image(systemName: project.mealsThisWeek ?  "checkmark.circle" : "circle")
+                    }
+                    .foregroundColor(Color(project.mealsThisWeek ? .secondaryLabel : .black))
+
+                }
+                )
+
+            }
+                Section(footer: Text("Clearing removes the recipe from the Shopping List Tab, deleting it removes the recipe entirely")) {
+
+                    Button("Clear this recipe") {
+                        showingClearConfirm.toggle()
+                    }
+                    .accentColor(.secondary)
+
+                    Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
                 }
                 .accentColor(.red)
@@ -93,6 +112,25 @@ struct EditRecipeForMealView: View {
                                           action: delete),
                   secondaryButton: .cancel())
         }
+        .alert(isPresented: $showingClearConfirm) {
+            Alert(title: Text("Clear Recipe from List?"),
+                  message: Text("Are you sure you want to remove this meal from this Week's Meals? This action will not remove the Recipe or ingredients entirely"),
+                  primaryButton: .default(Text("Clear"),
+                                          action: clear),
+                  secondaryButton: .cancel())
+        }
+    }
+
+
+
+    func clear() {
+        project.sundayAssignment = false
+        project.mondayAssignment = false
+        project.tuesdayAssignment = false
+        project.wednesdayAssignment = false
+        project.thursdayAssignment = false
+        project.fridayAssignment = false 
+        presentationMode.wrappedValue.dismiss()
     }
 
     func update() {
@@ -108,7 +146,7 @@ struct EditRecipeForMealView: View {
     }
 
     func toggleClosed() {
-            project.closed = false
+        project.closed.toggle()
 
             if project.closed {
                // Trigger Custom Haptics
