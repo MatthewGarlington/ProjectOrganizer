@@ -29,6 +29,7 @@ struct RecipesForTheWeekView: View {
                                 label: {
                                     HStack {
                                         Text("\(project.title ?? "")")
+                                            .foregroundColor(Color(project.color ?? "Green"))
 
 
                                     }
@@ -99,10 +100,12 @@ struct SundayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
-
+                                    .foregroundColor(Color(project.color ?? "Green"))
                             }
+
                         })
             }
         }
@@ -133,8 +136,10 @@ struct MondayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
+                                    .foregroundColor(Color(project.color ?? "Green"))
 
                             }
                         })
@@ -168,8 +173,10 @@ struct TuesdayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
+                                    .foregroundColor(Color(project.color ?? "Green"))
 
                             }
                         })
@@ -203,8 +210,10 @@ struct WednesdayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
+                                    .foregroundColor(Color(project.color ?? "Green"))
 
                             }
                         })
@@ -237,8 +246,10 @@ struct ThursdayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
+                                    .foregroundColor(Color(project.color ?? "Green"))
 
                             }
                         })
@@ -271,8 +282,10 @@ struct FridayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
+                                    .foregroundColor(Color(project.color ?? "Green"))
 
                             }
                         })
@@ -301,8 +314,10 @@ struct SaturdayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text("\(project.meal ?? "Breakfast"):")
+                                    .bold()
                                 Text(" \(project.title ?? "")")
+                                    .foregroundColor(Color(project.color ?? "Green"))
 
                             }
                         })
