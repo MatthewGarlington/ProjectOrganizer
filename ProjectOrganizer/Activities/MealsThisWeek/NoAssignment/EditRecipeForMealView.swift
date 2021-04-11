@@ -1,14 +1,15 @@
 //
-//  EditRecipeForThisWeek.swift
+//  EditRecipeForMealView.swift
 //  ProjectOrganizer
 //
-//  Created by Matthew Garlington on 4/9/21.
+//  Created by Matthew Garlington on 4/10/21.
 //
+
 
 import SwiftUI
 import CoreHaptics
 
-struct EditRecipeForThisWeek: View {
+struct EditRecipeForMealView: View {
     @ObservedObject var project: Project
 
     @EnvironmentObject var dataController: DataController
@@ -17,19 +18,15 @@ struct EditRecipeForThisWeek: View {
     @State private var title: String
     @State private var detail: String
     @State private var color: String
-    @State private var day: String
+    @State private var meal: String
     @State private var showingDeleteConfirm = false
 
     @State private var engine = try? CHHapticEngine()
 
-    let weekDays = ["No Day Selected",
-                           "Sunday",
-                           "Monday",
-                           "Tuesday",
-                           "Wednesday",
-                           "Thursday",
-                           "Friday",
-                           "Saturday"]
+
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
 
 
 
@@ -43,7 +40,7 @@ struct EditRecipeForThisWeek: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
-        _day = State(wrappedValue: project.day ?? "Monday")
+        _meal = State(wrappedValue: project.projectMeal)
     }
 
     var body: some View {
@@ -53,25 +50,34 @@ struct EditRecipeForThisWeek: View {
                 TextField("Recipe name", text: $title.onChange(update))
                 TextField("Description of this Recipe", text: $detail.onChange(update))
 
-                Picker("Meal Day", selection: $day.onChange(update)) {
-                    ForEach(weekDays, id: \.self) {
+
+                Picker("Meal Type", selection: $meal.onChange(update)) {
+                    ForEach(meals, id: \.self) {
                         Text($0)
                     }
                 }
             }
-            // section 2 (Color picker)
-            Section(header: Text("Custom recipe color")) {
-                LazyVGrid(columns: colorColums) {
-                    ForEach(Project.colors, id: \.self, content: colorButton)
-                }
-                .padding(.vertical)
-            }
-            // section 3
+
+
+
+            // section 4
             Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
                 Button("Move To Shopping List", action: toggleClosed)
                 Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
                     project.saved.toggle()
                 }
+
+                Button(project.mealsThisWeek ? "Move to Unassigned" : "Move to Unassigned") {
+                    project.mealsThisWeek = true 
+                    project.sundayAssignment = false
+                    project.mondayAssignment = false
+                    project.tuesdayAssignment = false
+                    project.wednesdayAssignment = false
+                    project.thursdayAssignment = false
+                    project.fridayAssignment = false
+                    project.saturdayAssignment = false 
+                }
+
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
                 }
@@ -93,7 +99,7 @@ struct EditRecipeForThisWeek: View {
         project.title = title
         project.detail = detail
         project.color = color
-        project.day = day 
+        project.meal = meal
     }
 
     func delete() {
@@ -167,10 +173,11 @@ struct EditRecipeForThisWeek: View {
     }
 }
 
-struct EditRecipeForThisWeek_Previews: PreviewProvider {
+struct EditRecipeForMealView_Previews: PreviewProvider {
     static var previews: some View {
-        EditRecipeForThisWeek(project: Project.example)
+        EditRecipeForMealView(project: Project.example)
     }
 }
+
 
 

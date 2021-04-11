@@ -1,33 +1,33 @@
 //
-//  RecipesForTheWeekViewModel.swift
+//  SaturdayListSectionViewModel.swift
 //  ProjectOrganizer
 //
-//  Created by Matthew Garlington on 4/9/21.
+//  Created by Matthew Garlington on 4/10/21.
 //
-
 import Foundation
 import CoreData
 import SwiftUI
 
-extension RecipesForTheWeekView {
+
+extension SaturdayListSection {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         let dataController: DataController
 
         var sortOrder = Item.SortOrder.optimized
-        let mealsThisWeek: Bool
+        let saturdayAssignment: Bool
 
         private let projectController: NSFetchedResultsController<Project>
         @Published var projects = [Project]()
 
-        init(dataController: DataController, mealsThisWeek: Bool) {
+        init(dataController: DataController, saturdayAssignment: Bool) {
             self.dataController = dataController
-            self.mealsThisWeek = mealsThisWeek
+            self.saturdayAssignment = saturdayAssignment
 
             // Used to ensure MVVM where the request is
             // able to be accessed by other Views
             let request: NSFetchRequest<Project> = Project.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)]
-            request.predicate = NSPredicate(format: "mealsThisWeek = %d", mealsThisWeek)
+            request.predicate = NSPredicate(format: "saturdayAssignment = %d", saturdayAssignment)
 
             projectController = NSFetchedResultsController(fetchRequest: request,
                                                            managedObjectContext: dataController.container.viewContext,
@@ -47,28 +47,7 @@ extension RecipesForTheWeekView {
             }
 
         }
-        func addProject() {
-                let project = Project(context: dataController.container.viewContext)
-                project.closed = false
-                project.creationDate = Date()
-                dataController.save()
-        }
 
-        func addItem(to project: Project) {
-                let item = Item(context: dataController.container.viewContext)
-                item.project = project
-                item.creationDate = Date()
-                dataController.save()
-        }
-
-        func delete(_ offsets: IndexSet, from project: Project) {
-            let allItems = project.projectItems(using: sortOrder)
-            for offset in offsets {
-                let item = allItems[offset]
-                dataController.delete(item)
-            }
-            dataController.save()
-        }
 
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
             if let newProjects = controller.fetchedObjects as? [Project] {
@@ -78,3 +57,4 @@ extension RecipesForTheWeekView {
 
     }
 }
+
