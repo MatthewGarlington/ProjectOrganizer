@@ -73,9 +73,9 @@ struct EditProjectView: View {
                     project.saved.toggle()
                 }
 
-//                Button(project.mealsThisWeek ? "Remove From Meals for This Week" : "Move To Meals for This Week") {
-//                    project.mealsThisWeek.toggle()
-//                }
+                Button(project.mealsThisWeek ? "Remove From Meals for This Week" : "Move To Meals for This Week") {
+                    project.mealsThisWeek.toggle()
+                }
          
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
