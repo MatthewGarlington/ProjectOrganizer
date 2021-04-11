@@ -14,13 +14,21 @@
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="day" optional="YES" attributeType="String"/>
         <attribute name="detail" optional="YES" attributeType="String"/>
+        <attribute name="fridayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="meal" optional="YES" attributeType="String"/>
         <attribute name="mealsThisWeek" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mondayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="saturdayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="saved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sundayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="thursdayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="tuesdayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="wednesdayAssignment" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="project" inverseEntity="Item"/>
     </entity>
     <elements>
         <element name="Item" positionX="-18" positionY="27" width="128" height="119"/>
-        <element name="Project" positionX="36" positionY="81" width="128" height="164"/>
+        <element name="Project" positionX="36" positionY="81" width="128" height="284"/>
     </elements>
 </model>
