@@ -17,6 +17,7 @@ struct EditRecipeForThisWeek: View {
     @State private var title: String
     @State private var detail: String
     @State private var color: String
+    @State private var meal: String
     @State private var showingDeleteConfirm = false
 
     @State private var engine = try? CHHapticEngine()
@@ -35,6 +36,7 @@ struct EditRecipeForThisWeek: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
+        _meal = State(wrappedValue: project.meal ?? "Breakfast")
     }
 
     var body: some View {
@@ -44,25 +46,77 @@ struct EditRecipeForThisWeek: View {
                 TextField("Recipe name", text: $title.onChange(update))
                 TextField("Description of this Recipe", text: $detail.onChange(update))
 
-
             }
-
-
             // Section 3, Choose a Day
 
             Section(header: Text("Choose a Day for the Meal to be made")) {
-            Button(project.sundayAssignment ? "Remove from Sunday" : "Move to Sunday") {
-                project.sundayAssignment.toggle()
-                project.mealsThisWeek.toggle()
-            }
 
-                Button(project.sundayAssignment ? "Remove from Sunday" : "Move to Sunday") {
-                    project.sundayAssignment.toggle()
-                    project.mealsThisWeek.toggle()
+                if project.sundayAssignment {
+
+                    Toggle(isOn: $project.sundayAssignment) {
+                        Text("Sunday")
+                    }
                 }
-                Button(project.sundayAssignment ? "Remove from Sunday" : "Move to Sunday") {
-                    project.sundayAssignment.toggle()
-                    project.mealsThisWeek.toggle()
+                else if project.mondayAssignment {
+                    Toggle(isOn: $project.mondayAssignment) {
+                        Text("Monday")
+                    }
+                }
+                else if project.tuesdayAssignment {
+
+                    Toggle(isOn: $project.tuesdayAssignment) {
+                        Text("Tuesday")
+                    }
+                }
+                else if project.wednesdayAssignment {
+
+                    Toggle(isOn: $project.wednesdayAssignment) {
+                        Text("Wednesday")
+                    }
+                }
+
+                else if project.thursdayAssignment {
+
+                    Toggle(isOn: $project.thursdayAssignment) {
+                        Text("Thursday")
+                    }
+                }
+
+                else if project.fridayAssignment {
+
+                    Toggle(isOn: $project.fridayAssignment) {
+                        Text("Friday")
+                    }
+                }
+                else if project.saturdayAssignment {
+
+                    Toggle(isOn: $project.saturdayAssignment) {
+                        Text("Saturday")
+                    }
+
+                } else {
+                    Toggle(isOn: $project.sundayAssignment) {
+                        Text("Sunday")
+                    }
+                    Toggle(isOn: $project.mondayAssignment) {
+                        Text("Monday")
+                    }
+                    Toggle(isOn: $project.tuesdayAssignment) {
+                        Text("Tuesday")
+                    }
+                    Toggle(isOn: $project.wednesdayAssignment) {
+                        Text("Wednesday")
+                    }
+                    Toggle(isOn: $project.thursdayAssignment) {
+                        Text("Thursday")
+                    }
+                    Toggle(isOn: $project.fridayAssignment) {
+                        Text("Friday")
+                    }
+                    Toggle(isOn: $project.saturdayAssignment) {
+                        Text("Saturday")
+                    }
+
                 }
             }
 
@@ -89,11 +143,13 @@ struct EditRecipeForThisWeek: View {
                   secondaryButton: .cancel())
         }
     }
+    
 
     func update() {
         project.title = title
         project.detail = detail
         project.color = color
+        project.meal = meal
     }
 
     func delete() {
