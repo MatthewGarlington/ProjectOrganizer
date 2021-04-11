@@ -19,6 +19,7 @@ struct EditRecipeForThisWeek: View {
     @State private var color: String
     @State private var meal: String
     @State private var showingDeleteConfirm = false
+    @State private var showingClearConfirm = false
 
     @State private var engine = try? CHHapticEngine()
 
@@ -49,7 +50,7 @@ struct EditRecipeForThisWeek: View {
             }
             // Section 3, Choose a Day
 
-            Section(header: Text("Choose a Day for the Meal to be made")) {
+            Section(header: Text("Choose a Day for the Meal to be made on this week.")) {
 
                 if project.sundayAssignment {
 
@@ -143,11 +144,12 @@ struct EditRecipeForThisWeek: View {
             }
 
             // section 4
-            Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
-//                Button("Move To Shopping List", action: toggleClosed)
-//                Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
-//                    project.saved.toggle()
-//                }
+            Section(footer: Text("Clearing removes the recipe from the Shopping List Tab, deleting it removes the recipe entirely")) {
+
+                Button("Clear This Week's Meals") {
+                    showingClearConfirm.toggle()
+                }
+                .accentColor(.secondary)
 
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
@@ -159,9 +161,16 @@ struct EditRecipeForThisWeek: View {
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $showingDeleteConfirm) {
             Alert(title: Text("Delete Recipe?"),
-                  message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
+                  message: Text("Are you sure you want to delete this recipe? You will delete the Recipe and all the ingredients that the recipe contains throughout the application. This cannot be undone"),
                   primaryButton: .default(Text("Delete"),
                                           action: delete),
+                  secondaryButton: .cancel())
+        }
+        .alert(isPresented: $showingClearConfirm) {
+            Alert(title: Text("Clear Recipe from List?"),
+                  message: Text("Are you sure you want to remove this meal from this Week's Meals? This action will not remove the Recipe or ingredients entirely"),
+                  primaryButton: .default(Text("Clear"),
+                                          action: clear),
                   secondaryButton: .cancel())
         }
     }
@@ -176,6 +185,11 @@ struct EditRecipeForThisWeek: View {
 
     func delete() {
         dataController.delete(project)
+        presentationMode.wrappedValue.dismiss()
+    }
+
+    func clear() {
+        project.mealsThisWeek = false
         presentationMode.wrappedValue.dismiss()
     }
 
