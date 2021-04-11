@@ -33,8 +33,6 @@ struct SavedRecipeView: View {
                         .onDelete { offsets in
                             viewModel.delete(offsets, from: project)
                         }
-
-
                     }
                     .listStyle(InsetListStyle())
 
