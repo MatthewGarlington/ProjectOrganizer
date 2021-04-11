@@ -116,7 +116,11 @@ struct EditRecipeForThisWeek: View {
                     Toggle(isOn: $project.saturdayAssignment) {
                         Text("Saturday")
                     }
-
+                    .onDisappear {
+                        if project.mealsThisWeek {
+                        project.mealsThisWeek = false
+                        }
+                    }
                 }
             }
 
