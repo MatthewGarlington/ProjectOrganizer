@@ -29,7 +29,7 @@ struct RecipesForTheWeekView: View {
                                 label: {
                                     HStack {
                                         Text("\(project.title ?? "")")
-                                        Text("\(project.day ?? "")")
+
 
                                     }
                                    
@@ -38,7 +38,12 @@ struct RecipesForTheWeekView: View {
                     }
 
                 SundayListSection(dataController: dataController, sundayAssignment: true)
-
+                MondayListSection(dataController: dataController, mondayAssignment: true)
+                TuesdayListSection(dataController: dataController, tuesdayAssignment: true)
+                WednesdayListSection(dataController: dataController, wednesdayAssignment: true)
+                ThursdayListSection(dataController: dataController, thursdayAssignment: true)
+                FridayListSection(dataController: dataController, fridayAssignment: true)
+                SaturdayListSection(dataController: dataController, saturdayAssignment: true)
 
                 }
             }
@@ -55,20 +60,14 @@ struct RecipesForTheWeekView: View {
     var body: some View {
         NavigationView {
             Group {
-                if viewModel.projects.isEmpty {
-                    Text("There's nothing here right now")
-                        .foregroundColor(.secondary)
-                } else {
+
 
                     weekMealsList
-                }
             }
 
 
             .navigationBarTitle("Meals This Week")
 
-
-            SelectSomethingView()
         }
     }
 
@@ -90,11 +89,7 @@ struct SundayListSection: View {
 
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
-    let noMealShown = "No Meal Shown For This Day"
-
-    let meals = [
-        "Breakfast", "Lunch", "Dinner"
-    ]
+  
 
     var body: some View {
 
@@ -104,7 +99,8 @@ struct SundayListSection: View {
                         destination: EditRecipeForMealView(project: project),
                         label: {
                             HStack {
-                                Text("Breakfast: \(project.title ?? "")")
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
 
                             }
                         })
@@ -118,4 +114,208 @@ struct SundayListSection: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 }
+
+struct MondayListSection: View {
+    static let weekList: String? = "Meals This Week"
+
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
+    let noMealShown = "No Meal Shown For This Day"
+
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
+
+    var body: some View {
+        Section(header: Text("Monday")) {
+                ForEach(viewModel.projects, id: \.self) { project in
+                    NavigationLink(
+                        destination: EditRecipeForMealView(project: project),
+                        label: {
+                            HStack {
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
+
+                            }
+                        })
+            }
+        }
+
+    }
+
+    init(dataController: DataController, mondayAssignment: Bool) {
+        let viewModel = ViewModel(dataController: dataController, mondayAssignment: mondayAssignment)
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+}
+
+
+struct TuesdayListSection: View {
+    static let weekList: String? = "Meals This Week"
+
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
+    let noMealShown = "No Meal Shown For This Day"
+
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
+
+    var body: some View {
+        Section(header: Text("Tuesday")) {
+                ForEach(viewModel.projects, id: \.self) { project in
+                    NavigationLink(
+                        destination: EditRecipeForMealView(project: project),
+                        label: {
+                            HStack {
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
+
+                            }
+                        })
+            }
+        }
+
+    }
+
+    init(dataController: DataController, tuesdayAssignment: Bool) {
+        let viewModel = ViewModel(dataController: dataController, tuesdayAssignment: tuesdayAssignment)
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+}
+
+
+struct WednesdayListSection: View {
+    static let weekList: String? = "Meals This Week"
+
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
+    let noMealShown = "No Meal Shown For This Day"
+
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
+
+    var body: some View {
+        Section(header: Text("Wednesday")) {
+                ForEach(viewModel.projects, id: \.self) { project in
+                    NavigationLink(
+                        destination: EditRecipeForMealView(project: project),
+                        label: {
+                            HStack {
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
+
+                            }
+                        })
+            }
+        }
+
+    }
+
+    init(dataController: DataController, wednesdayAssignment: Bool) {
+        let viewModel = ViewModel(dataController: dataController, wednesdayAssignment: wednesdayAssignment)
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+}
+
+struct ThursdayListSection: View {
+    static let weekList: String? = "Meals This Week"
+
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
+    let noMealShown = "No Meal Shown For This Day"
+
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
+
+    var body: some View {
+        Section(header: Text("Thursday")) {
+                ForEach(viewModel.projects, id: \.self) { project in
+                    NavigationLink(
+                        destination: EditRecipeForMealView(project: project),
+                        label: {
+                            HStack {
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
+
+                            }
+                        })
+            }
+        }
+
+    }
+
+    init(dataController: DataController, thursdayAssignment: Bool) {
+        let viewModel = ViewModel(dataController: dataController, thursdayAssignment: thursdayAssignment)
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+}
+
+struct FridayListSection: View {
+    static let weekList: String? = "Meals This Week"
+
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
+    let noMealShown = "No Meal Shown For This Day"
+
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
+
+    var body: some View {
+        Section(header: Text("Friday")) {
+                ForEach(viewModel.projects, id: \.self) { project in
+                    NavigationLink(
+                        destination: EditRecipeForMealView(project: project),
+                        label: {
+                            HStack {
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
+
+                            }
+                        })
+            }
+        }
+
+    }
+
+    init(dataController: DataController, fridayAssignment: Bool) {
+        let viewModel = ViewModel(dataController: dataController, fridayAssignment: fridayAssignment)
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+}
+
+struct SaturdayListSection: View {
+    static let weekList: String? = "Meals This Week"
+
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
+
+
+    var body: some View {
+        Section(header: Text("Saturday")) {
+                ForEach(viewModel.projects, id: \.self) { project in
+                    NavigationLink(
+                        destination: EditRecipeForMealView(project: project),
+                        label: {
+                            HStack {
+                                Text("\(project.meal ?? "No Meal Assigned"):")
+                                Text(" \(project.title ?? "")")
+
+                            }
+                        })
+            }
+        }
+
+    }
+
+    init(dataController: DataController, saturdayAssignment: Bool) {
+        let viewModel = ViewModel(dataController: dataController, saturdayAssignment: saturdayAssignment)
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+}
+
+
 
