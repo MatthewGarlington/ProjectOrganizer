@@ -24,7 +24,7 @@ extension ItemRowView {
             } else if item.priority == 3 {
                 return  "exclamationmark.triangle"
             } else {
-                return "checkmark.circle"
+                return "circle"
             }
         }
         var color: String? {
@@ -34,7 +34,7 @@ extension ItemRowView {
             } else if item.priority == 3 {
                 return project.projectColor
             } else {
-                return nil
+                return project.projectColor
             }
         }
          init(project: Project, item: Item) {
