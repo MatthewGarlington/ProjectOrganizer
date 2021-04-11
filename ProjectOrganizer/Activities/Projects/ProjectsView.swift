@@ -40,6 +40,7 @@ struct ProjectsView: View {
                             Button {
                                 withAnimation {
                                 viewModel.addItem(to: project)
+
                                 }
                             } label: {
                                 Label("Add New Ingredient", systemImage: "plus")
@@ -68,6 +69,7 @@ struct ProjectsView: View {
                 Button {
                     withAnimation {
                         viewModel.addProject()
+                        
                     }
                     } label: {
                     Label("Add Recipe", systemImage: "plus")
