@@ -11,6 +11,14 @@
 		6B31AB862620BC62004E240A /* RecipesForTheWeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */; };
 		6B31AB882620C0C6004E240A /* RecipesForThisWeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */; };
 		6B31AB8A2620D458004E240A /* EditRecipeForThisWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */; };
+		6B31AB8C2621CB77004E240A /* SundayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB8B2621CB77004E240A /* SundayListSectionViewModel.swift */; };
+		6B31AB8E2621F120004E240A /* EditRecipeForMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB8D2621F120004E240A /* EditRecipeForMealView.swift */; };
+		6B31AB9526223193004E240A /* MondayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB9426223193004E240A /* MondayListSectionViewModel.swift */; };
+		6B31AB982622324F004E240A /* TuesdayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB972622324F004E240A /* TuesdayListSectionViewModel.swift */; };
+		6B31AB9B26223269004E240A /* WednesdayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB9A26223269004E240A /* WednesdayListSectionViewModel.swift */; };
+		6B31AB9E2622327F004E240A /* ThursdayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB9D2622327F004E240A /* ThursdayListSectionViewModel.swift */; };
+		6B31ABA12622328F004E240A /* FridayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31ABA02622328F004E240A /* FridayListSectionViewModel.swift */; };
+		6B31ABA4262232A5004E240A /* SaturdayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31ABA3262232A5004E240A /* SaturdayListSectionViewModel.swift */; };
 		6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850D12617A08000DDA49F /* HomeViewModel.swift */; };
 		6B5850D4261881B900DDA49F /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */; };
 		6B5850E0261A709000DDA49F /* SavedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850DF261A709000DDA49F /* SavedRecipeView.swift */; };
@@ -80,6 +88,14 @@
 		6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForTheWeekViewModel.swift; sourceTree = "<group>"; };
 		6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForThisWeekHeaderView.swift; sourceTree = "<group>"; };
 		6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeForThisWeek.swift; sourceTree = "<group>"; };
+		6B31AB8B2621CB77004E240A /* SundayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SundayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31AB8D2621F120004E240A /* EditRecipeForMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeForMealView.swift; sourceTree = "<group>"; };
+		6B31AB9426223193004E240A /* MondayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31AB972622324F004E240A /* TuesdayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuesdayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31AB9A26223269004E240A /* WednesdayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WednesdayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31AB9D2622327F004E240A /* ThursdayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThursdayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31ABA02622328F004E240A /* FridayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31ABA3262232A5004E240A /* SaturdayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturdayListSectionViewModel.swift; sourceTree = "<group>"; };
 		6B5850D12617A08000DDA49F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		6B5850DF261A709000DDA49F /* SavedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeView.swift; sourceTree = "<group>"; };
@@ -158,6 +174,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B31AB8F2621F404004E240A /* NoAssignment */ = {
+			isa = PBXGroup;
+			children = (
+				6B31AB8D2621F120004E240A /* EditRecipeForMealView.swift */,
+				6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */,
+				6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */,
+				6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */,
+				6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */,
+			);
+			path = NoAssignment;
+			sourceTree = "<group>";
+		};
+		6B31ABA226223292004E240A /* WeekDayViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6B31ABA3262232A5004E240A /* SaturdayListSectionViewModel.swift */,
+				6B31ABA02622328F004E240A /* FridayListSectionViewModel.swift */,
+				6B31AB9D2622327F004E240A /* ThursdayListSectionViewModel.swift */,
+				6B31AB9A26223269004E240A /* WednesdayListSectionViewModel.swift */,
+				6B31AB972622324F004E240A /* TuesdayListSectionViewModel.swift */,
+				6B31AB9426223193004E240A /* MondayListSectionViewModel.swift */,
+				6B31AB8B2621CB77004E240A /* SundayListSectionViewModel.swift */,
+			);
+			path = WeekDayViewModel;
+			sourceTree = "<group>";
+		};
 		6B5850DE261A704F00DDA49F /* SavedRecipe */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,10 +214,8 @@
 		6B5850E72620872500DDA49F /* MealsThisWeek */ = {
 			isa = PBXGroup;
 			children = (
-				6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */,
-				6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */,
-				6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */,
-				6B31AB892620D458004E240A /* EditRecipeForThisWeek.swift */,
+				6B31ABA226223292004E240A /* WeekDayViewModel */,
+				6B31AB8F2621F404004E240A /* NoAssignment */,
 			);
 			path = MealsThisWeek;
 			sourceTree = "<group>";
@@ -477,7 +517,10 @@
 				6B5850E4261A7C5200DDA49F /* EditSavedRecipeView.swift in Sources */,
 				6BC00F2D2603E37D00C76453 /* ProjectsView.swift in Sources */,
 				6BC00F272603E33300C76453 /* HomeView.swift in Sources */,
+				6B31AB8E2621F120004E240A /* EditRecipeForMealView.swift in Sources */,
+				6B31AB9526223193004E240A /* MondayListSectionViewModel.swift in Sources */,
 				6BC00F332603E3AE00C76453 /* ItemRowView.swift in Sources */,
+				6B31ABA4262232A5004E240A /* SaturdayListSectionViewModel.swift in Sources */,
 				6B8EE78F2617776500F95B9A /* ProjectsViewModel.swift in Sources */,
 				6BC00F532603E69E00C76453 /* Binding-OnChange.swift in Sources */,
 				6BC00F4F2603E67900C76453 /* Blur-Extension.swift in Sources */,
@@ -487,7 +530,9 @@
 				6B5850D4261881B900DDA49F /* ItemRowViewModel.swift in Sources */,
 				6B31AB8A2620D458004E240A /* EditRecipeForThisWeek.swift in Sources */,
 				6BC00F552603E7A000C76453 /* Color-Additions.swift in Sources */,
+				6B31AB9B26223269004E240A /* WednesdayListSectionViewModel.swift in Sources */,
 				6B5850E2261A70EF00DDA49F /* SavedRecipeViewModel.swift in Sources */,
+				6B31AB982622324F004E240A /* TuesdayListSectionViewModel.swift in Sources */,
 				6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */,
 				6BC00F3B2603E46300C76453 /* Award.swift in Sources */,
 				6BC00F132603DD9700C76453 /* ContentView.swift in Sources */,
@@ -498,14 +543,17 @@
 				6BC00F372603E3D000C76453 /* EditItemView.swift in Sources */,
 				6BC00F4A2603E61500C76453 /* Main.xcdatamodeld in Sources */,
 				6BC00F312603E39F00C76453 /* ProjectHeaderView.swift in Sources */,
+				6B31AB8C2621CB77004E240A /* SundayListSectionViewModel.swift in Sources */,
 				6BC00F512603E68800C76453 /* Sequence-Extension.swift in Sources */,
 				6BC00F4D2603E66000C76453 /* Bundle-Decodable.swift in Sources */,
+				6B31AB9E2622327F004E240A /* ThursdayListSectionViewModel.swift in Sources */,
 				6B5850E0261A709000DDA49F /* SavedRecipeView.swift in Sources */,
 				6BC00F392603E45100C76453 /* AwardsView.swift in Sources */,
 				6BC00F112603DD9700C76453 /* ProjectOrganizerApp.swift in Sources */,
 				6BC00F352603E3BD00C76453 /* EditProjectView.swift in Sources */,
 				6B5850E6261A7D6C00DDA49F /* SavedRecipeHeaderView.swift in Sources */,
 				6BC00F292603E34F00C76453 /* ItemListView.swift in Sources */,
+				6B31ABA12622328F004E240A /* FridayListSectionViewModel.swift in Sources */,
 				6BC00F592603E7C800C76453 /* Item-CoreDataHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
