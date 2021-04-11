@@ -61,16 +61,21 @@ struct EditProjectView: View {
             }
             // section 3
             Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
-                Button(project.closed ? "Add to Shopping List" : "Move To Purchased", action: toggleClosed)
+                Button(project.closed ? "Add to Shopping List" : "Move To Purchased") {
+
+                    toggleClosed()
+
+//                    if !project.closed {
+//                        project.mealsThisWeek = true
+//                    }
+                }
                 Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
                     project.saved.toggle()
                 }
 
-                Button(project.mealsThisWeek ? "Remove From Meals for This Week" : "Move To Meals for This Week") {
-                    project.mealsThisWeek.toggle()
-                }
-
-
+//                Button(project.mealsThisWeek ? "Remove From Meals for This Week" : "Move To Meals for This Week") {
+//                    project.mealsThisWeek.toggle()
+//                }
          
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
@@ -79,7 +84,11 @@ struct EditProjectView: View {
             }
         }
         .navigationTitle("Edit Recipe")
-        .onDisappear(perform: dataController.save)
+        .onDisappear() {
+            project.mealsThisWeek = true
+            dataController.save()
+
+        }
         .alert(isPresented: $showingDeleteConfirm) {
             Alert(title: Text("Delete Recipe?"),
                   message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
