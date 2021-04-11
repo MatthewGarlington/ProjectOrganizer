@@ -117,7 +117,25 @@ struct EditRecipeForThisWeek: View {
                         Text("Saturday")
                     }
                     .onDisappear {
-                        if project.mealsThisWeek {
+                        if project.mealsThisWeek && project.sundayAssignment {
+                        project.mealsThisWeek = false
+                        }
+                        else if project.mealsThisWeek && project.mondayAssignment {
+                        project.mealsThisWeek = false
+                        }
+                        else if project.mealsThisWeek && project.tuesdayAssignment {
+                        project.mealsThisWeek = false
+                        }
+                        else if project.mealsThisWeek && project.wednesdayAssignment {
+                        project.mealsThisWeek = false
+                        }
+                        else if project.mealsThisWeek && project.thursdayAssignment {
+                        project.mealsThisWeek = false
+                        }
+                        else if project.mealsThisWeek && project.fridayAssignment {
+                        project.mealsThisWeek = false
+                        }
+                        else if project.mealsThisWeek && project.saturdayAssignment {
                         project.mealsThisWeek = false
                         }
                     }
