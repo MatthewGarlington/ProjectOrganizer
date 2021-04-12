@@ -25,7 +25,7 @@ struct SavedRecipeView: View {
                 ForEach(viewModel.projects) { project in
                     Section(header: SavedRecipeHeaderView(project: project)) {
                         ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
-                            ItemRowView(project: project, item: item)
+                            SavedItemRow(project: project, item: item)
 
                         }
 
