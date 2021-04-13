@@ -17,8 +17,6 @@ struct ProjectsView: View {
     
     
     var projectsList: some View {
-        
-    
         ZStack {
  
             VStack {
@@ -27,9 +25,7 @@ struct ProjectsView: View {
                     Section(header: ProjectHeaderView(project: project)) {
                         ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
                             ItemRowView(project: project, item: item)
-
                         }
-
                         // delete the items without messing up the sorted order
                         .onDelete { offsets in
                             viewModel.delete(offsets, from: project)
@@ -45,18 +41,14 @@ struct ProjectsView: View {
                             } label: {
                                 Label("Add New Ingredient", systemImage: "plus")
                             }
-
                         }
-
                     }
                     .listStyle(InsetListStyle())
 
                 }
-
                 }
             }
         }
-     
     }
        
         
