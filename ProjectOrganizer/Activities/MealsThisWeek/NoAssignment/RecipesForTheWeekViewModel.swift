@@ -15,6 +15,7 @@ extension RecipesForTheWeekView {
 
         var sortOrder = Item.SortOrder.optimized
         let mealsThisWeek: Bool
+      //  let position: Int
 
         private let projectController: NSFetchedResultsController<Project>
         @Published var projects = [Project]()
@@ -22,12 +23,18 @@ extension RecipesForTheWeekView {
         init(dataController: DataController, mealsThisWeek: Bool) {
             self.dataController = dataController
             self.mealsThisWeek = mealsThisWeek
+ 
 
             // Used to ensure MVVM where the request is
             // able to be accessed by other Views
             let request: NSFetchRequest<Project> = Project.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)]
+            request.sortDescriptors = [
+                NSSortDescriptor(keyPath: \Project.position, ascending: true),
+
+
+            ]
             request.predicate = NSPredicate(format: "mealsThisWeek = %d", mealsThisWeek)
+
 
             projectController = NSFetchedResultsController(fetchRequest: request,
                                                            managedObjectContext: dataController.container.viewContext,
@@ -47,7 +54,9 @@ extension RecipesForTheWeekView {
             }
 
         }
- 
+        
+
+    
 
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
             if let newProjects = controller.fetchedObjects as? [Project] {
