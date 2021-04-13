@@ -107,7 +107,7 @@ struct ItemListView: View {
                     .shadow(color: Color.black.opacity(0.2), radius: 5)
                     .overlay(
                          RoundedRectangle(cornerRadius: 10)
-                            .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color.green.opacity(0.4)]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                            .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color(item.project?.projectColor ?? "Green")]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
                      )
                 }
 
