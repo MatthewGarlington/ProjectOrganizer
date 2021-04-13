@@ -26,7 +26,7 @@ extension MondayListSection {
             // Used to ensure MVVM where the request is
             // able to be accessed by other Views
             let request: NSFetchRequest<Project> = Project.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)]
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.position, ascending: true)]
             request.predicate = NSPredicate(format: "mondayAssignment = %d", mondayAssignment)
 
             projectController = NSFetchedResultsController(fetchRequest: request,
