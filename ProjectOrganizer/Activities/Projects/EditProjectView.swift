@@ -47,7 +47,7 @@ struct EditProjectView: View {
             Section(header: Text("Basic Settings")) {
                 TextField("Recipe name", text: $title.onChange(update))
                 TextField("Description of this Recipe", text: $detail.onChange(update))
-             
+
             }
             // section 2 (Color picker)
             Section(header: Text("Custom recipe color")) {
