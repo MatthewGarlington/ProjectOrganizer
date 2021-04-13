@@ -19,6 +19,8 @@
 		6B31AB9E2622327F004E240A /* ThursdayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB9D2622327F004E240A /* ThursdayListSectionViewModel.swift */; };
 		6B31ABA12622328F004E240A /* FridayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31ABA02622328F004E240A /* FridayListSectionViewModel.swift */; };
 		6B31ABA4262232A5004E240A /* SaturdayListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31ABA3262232A5004E240A /* SaturdayListSectionViewModel.swift */; };
+		6B31ABA62623CFAB004E240A /* SavedItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31ABA52623CFAB004E240A /* SavedItemRow.swift */; };
+		6B31ABA82623CFE1004E240A /* SavedItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31ABA72623CFE1004E240A /* SavedItemRowViewModel.swift */; };
 		6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850D12617A08000DDA49F /* HomeViewModel.swift */; };
 		6B5850D4261881B900DDA49F /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */; };
 		6B5850E0261A709000DDA49F /* SavedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850DF261A709000DDA49F /* SavedRecipeView.swift */; };
@@ -96,6 +98,8 @@
 		6B31AB9D2622327F004E240A /* ThursdayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThursdayListSectionViewModel.swift; sourceTree = "<group>"; };
 		6B31ABA02622328F004E240A /* FridayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridayListSectionViewModel.swift; sourceTree = "<group>"; };
 		6B31ABA3262232A5004E240A /* SaturdayListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturdayListSectionViewModel.swift; sourceTree = "<group>"; };
+		6B31ABA52623CFAB004E240A /* SavedItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemRow.swift; sourceTree = "<group>"; };
+		6B31ABA72623CFE1004E240A /* SavedItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemRowViewModel.swift; sourceTree = "<group>"; };
 		6B5850D12617A08000DDA49F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
 		6B5850DF261A709000DDA49F /* SavedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeView.swift; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				6B5850E1261A70EF00DDA49F /* SavedRecipeViewModel.swift */,
 				6B5850E3261A7C5200DDA49F /* EditSavedRecipeView.swift */,
 				6B5850E5261A7D6C00DDA49F /* SavedRecipeHeaderView.swift */,
+				6B31ABA52623CFAB004E240A /* SavedItemRow.swift */,
+				6B31ABA72623CFE1004E240A /* SavedItemRowViewModel.swift */,
 			);
 			path = SavedRecipe;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				6B31AB9526223193004E240A /* MondayListSectionViewModel.swift in Sources */,
 				6BC00F332603E3AE00C76453 /* ItemRowView.swift in Sources */,
 				6B31ABA4262232A5004E240A /* SaturdayListSectionViewModel.swift in Sources */,
+				6B31ABA62623CFAB004E240A /* SavedItemRow.swift in Sources */,
 				6B8EE78F2617776500F95B9A /* ProjectsViewModel.swift in Sources */,
 				6BC00F532603E69E00C76453 /* Binding-OnChange.swift in Sources */,
 				6BC00F4F2603E67900C76453 /* Blur-Extension.swift in Sources */,
@@ -549,6 +556,7 @@
 				6B31AB9E2622327F004E240A /* ThursdayListSectionViewModel.swift in Sources */,
 				6B5850E0261A709000DDA49F /* SavedRecipeView.swift in Sources */,
 				6BC00F392603E45100C76453 /* AwardsView.swift in Sources */,
+				6B31ABA82623CFE1004E240A /* SavedItemRowViewModel.swift in Sources */,
 				6BC00F112603DD9700C76453 /* ProjectOrganizerApp.swift in Sources */,
 				6BC00F352603E3BD00C76453 /* EditProjectView.swift in Sources */,
 				6B5850E6261A7D6C00DDA49F /* SavedRecipeHeaderView.swift in Sources */,
