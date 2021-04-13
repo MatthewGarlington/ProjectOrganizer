@@ -73,7 +73,7 @@ struct EditProjectView: View {
                     project.saved.toggle()
                 }
 
-                Button(project.mealsThisWeek ? "Remove From Meals for This Week" : "Move To Meals for This Week") {
+                Button(project.mealsThisWeek ? "Remove From Meals This Week Tab" : "Move To Meals This Week Tab") {
                     project.mealsThisWeek.toggle()
                 }
          
