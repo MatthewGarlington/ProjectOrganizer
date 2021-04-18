@@ -14,26 +14,31 @@ struct ItemListView: View {
 
 
     @EnvironmentObject var dataController: DataController
+    @Binding var waveEffect: Bool
     
 
-    @State private var completeItem = false
+ //  @State private var animationComplete = false
     @State private var engine = try? CHHapticEngine()
     
     var body: some View {
         if items.isEmpty {
-            EmptyView()
+            Text("Add Items")
+                .foregroundColor(.secondary)
+                .font(.largeTitle)
         } else {
             Text(title)
                 .font(.headline)
-                .foregroundColor(.white)
                 .padding(.top)
             ForEach(items) { item in
-                NavigationLink(destination: EditItemView(item: item)) {
+        //        NavigationLink(destination: EditItemView(item: item)) {
                     HStack(spacing: 20) {
                         Button(action: {
+                            withAnimation {
                             toggleHomeItem()
+                            }
 
                             func toggleHomeItem() {
+
                                 item.completed = true
 
                                     if item.completed {
@@ -84,17 +89,22 @@ struct ItemListView: View {
                         Circle()
                             .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
                             .frame(width: 44, height: 44)
-                            .overlay(
-                                Image(systemName: "checkmark.circle")
-                                    .foregroundColor(Color(item.project?.projectColor ?? "Light Blue").opacity(completeItem ? 1 : 0.0001))
-                                    .font(.system(size: 44))
-                            )
+                         
                         })
+
+                   
+
+
                         VStack(alignment: .leading) {
                             Text(item.itemTitle)
                                 .font(.title2)
                                 .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
+                                .onLongPressGesture {
+                                    withAnimation {
+                                        self.waveEffect.toggle()
+                                    }
+                                }
                             if item.itemDetail.isEmpty == false {
                                 Text(item.itemDetail)
                                     .foregroundColor(.secondary)
@@ -104,15 +114,19 @@ struct ItemListView: View {
                     .padding()
                     .background(BlurView(style: .systemUltraThinMaterialLight))
                     .cornerRadius(10)
-                    .shadow(color: Color.black.opacity(0.2), radius: 5)
+                    .shadow(color: Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
                     .overlay(
                          RoundedRectangle(cornerRadius: 10)
                             .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color(item.project?.projectColor ?? "Green")]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
                      )
-                }
+                  
+  //              }
+                .animation(Animation.easeOut(duration: 0.5))
 
             }
 
+
+            
             
         }
     }
