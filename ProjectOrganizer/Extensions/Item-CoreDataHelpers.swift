@@ -18,6 +18,10 @@ extension Item {
     var itemDetail: String {
         detail ?? ""
     }
+    var itemAmount: String {
+        amount ?? ""
+    }
+
     var itemCreationDate: Date {
         creationDate ?? Date()
     }
