@@ -66,9 +66,7 @@ struct EditProjectView: View {
 //                        project.mealsThisWeek = true
 //                    }
                 }
-                Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
-                    project.saved.toggle()
-                }
+
 
                 Button(project.mealsThisWeek ? "Remove From Meals This Week Tab" : "Move To Meals This Week Tab") {
                     project.mealsThisWeek.toggle()
@@ -81,6 +79,20 @@ struct EditProjectView: View {
             }
         }
         .navigationTitle("Edit Recipe")
+        .navigationBarItems(trailing:
+                                Button(action: {
+                                    project.saved.toggle()
+
+                                }, label: {
+
+                                    Text("Save Recipe")
+                                        .opacity(project.saved ? 0.00001: 1)
+
+                                }
+                                )
+
+    )
+
         .onDisappear() {
             project.mealsThisWeek = true
             dataController.save()
