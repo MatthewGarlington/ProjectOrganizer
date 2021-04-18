@@ -5,16 +5,56 @@
 //  Created by Matthew Garlington on 4/14/21.
 //
 
+import Foundation
+import CoreData
 import SwiftUI
 
-struct ItemAnimationViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
 
-struct ItemAnimationViewModel_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemAnimationViewModel()
+extension ItemListView {
+    class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+        let dataController: DataController
+
+        var sortOrder = Item.SortOrder.optimized
+        let animationComplete: Bool
+
+        private let projectController: NSFetchedResultsController<Project>
+        @Published var projects = [Project]()
+
+        init(dataController: DataController, animationComplete: Bool) {
+            self.dataController = dataController
+            self.animationComplete = animationComplete
+
+            // Used to ensure MVVM where the request is
+            // able to be accessed by other Views
+            let request: NSFetchRequest<Project> = Project.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.position, ascending: true)]
+            request.predicate = NSPredicate(format: "animationComplete = %d", animationComplete)
+
+            projectController = NSFetchedResultsController(fetchRequest: request,
+                                                           managedObjectContext: dataController.container.viewContext,
+                                                           sectionNameKeyPath: nil,
+                                                           cacheName: nil
+            )
+
+            super.init()
+            projectController.delegate = self
+
+            do {
+                try projectController.performFetch()
+                projects = projectController.fetchedObjects ?? []
+
+            } catch {
+                print("Failed to fetch our Recipes")
+            }
+
+        }
+
+
+        func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            if let newProjects = controller.fetchedObjects as? [Project] {
+                projects = newProjects
+            }
+        }
+
     }
 }
