@@ -16,8 +16,8 @@ struct ProjectHeaderView: View {
                     .foregroundColor(Color(project.projectColor))
                     .font(.title)
                     .bold()
-                ProgressView(value: project.completionAmount)
-                    .accentColor(Color(project.projectColor))
+//                ProgressView(value: project.completionAmount)
+//                    .accentColor(Color(project.projectColor))
             }
             Spacer()
             
