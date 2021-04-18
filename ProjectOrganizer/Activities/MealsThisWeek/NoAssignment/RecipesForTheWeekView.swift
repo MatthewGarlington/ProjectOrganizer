@@ -48,6 +48,7 @@ struct RecipesForTheWeekView: View {
                 SaturdayListSection(dataController: dataController, saturdayAssignment: true)
 
             }
+        
         }
 
 
