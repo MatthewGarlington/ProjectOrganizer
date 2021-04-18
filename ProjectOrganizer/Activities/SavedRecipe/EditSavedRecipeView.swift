@@ -51,9 +51,7 @@ struct EditSavedRecipeView: View {
             // section 3
             Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
                 Button("Move To Shopping List", action: toggleClosed)
-                Button(project.saved ? "Remove from Saved Recipes" : "Move to Saved Recipes") {
-                    project.saved.toggle()
-                }
+             
                 Button(project.mealsThisWeek ? "Remove from Meals This Week Tab" : "Move to Meals This Week Tab") {
                     project.mealsThisWeek.toggle()
                 }
@@ -64,6 +62,18 @@ struct EditSavedRecipeView: View {
             }
         }
         .navigationTitle("Edit Recipe")
+        .navigationBarItems(trailing:
+                                Button(action: {
+                                    project.saved.toggle()
+
+                                }, label: {
+
+                                    Text("Unsave")
+                                        .opacity(project.saved ? 1: 0.0001)
+                                }
+                                )
+    )
+        
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $showingDeleteConfirm) {
             Alert(title: Text("Delete Recipe?"),
