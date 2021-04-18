@@ -15,13 +15,15 @@ struct EditItemView: View {
     @State private var detail: String
     @State private var priority: Int
     @State private var completed: Bool
-    
+    @State private var amount: String
+
     init(item: Item) {
         self.item = item
         _title = State(wrappedValue: item.itemTitle)
         _detail = State(wrappedValue: item.itemDetail)
         _priority = State(wrappedValue: Int(item.priority))
         _completed = State(wrappedValue: item.completed)
+        _amount = State(wrappedValue: item.amount ?? "")
     }
     var body: some View {
         Form {
@@ -29,6 +31,7 @@ struct EditItemView: View {
                 // The onChange modifier adds a call to the create extension of Binding-onChange which stores the data
                 TextField("Ingredient name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
+                TextField("Amount", text: $amount.onChange(update))
                 
             }
             Section(header: Text("Priority")) {
@@ -59,6 +62,7 @@ struct EditItemView: View {
         item.detail = detail
         item.priority = Int16(priority)
         item.completed = completed
+        item.amount = amount
     }
 }
  
