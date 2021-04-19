@@ -84,7 +84,7 @@ struct EditRecipeForMealView: View {
                         Spacer()
                         Image(systemName: project.mealsThisWeek ?  "checkmark.circle" : "circle")
                     }
-                    .foregroundColor(Color(project.mealsThisWeek ? .secondaryLabel : .black))
+                    .foregroundColor(Color(project.mealsThisWeek ? .clear : .secondaryLabel))
 
                 }
                 )
