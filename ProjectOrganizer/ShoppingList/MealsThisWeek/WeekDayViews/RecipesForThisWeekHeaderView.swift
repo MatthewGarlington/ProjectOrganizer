@@ -12,7 +12,7 @@ struct RecipesForThisWeekHeaderView: View {
     @ObservedObject var project: Project
     @State private var selectedWeekday = "No Day Selected"
 
- 
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

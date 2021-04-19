@@ -26,27 +26,27 @@ extension SavedRecipeView {
             // Used to ensure MVVM where the request is
             // able to be accessed by other Views
             let request: NSFetchRequest<Project> = Project.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate, ascending: false)]
-            request.predicate = NSPredicate(format: "saved = %d", showSavedProjects)
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate,
+                                                        ascending: false)
+            ]
+            request.predicate = NSPredicate(format: "saved = %d",
+                                            showSavedProjects)
 
             projectController = NSFetchedResultsController(fetchRequest: request,
                                                            managedObjectContext: dataController.container.viewContext,
                                                            sectionNameKeyPath: nil,
                                                            cacheName: nil
             )
-
             super.init()
             projectController.delegate = self
-
             do {
                 try projectController.performFetch()
                 projects = projectController.fetchedObjects ?? []
-
             } catch {
                 print("Failed to fetch our Recipes")
             }
-
         }
+
         func addProject() {
                 let project = Project(context: dataController.container.viewContext)
                 project.closed = false
@@ -75,7 +75,6 @@ extension SavedRecipeView {
                 projects = newProjects
             }
         }
-
     }
 }
 

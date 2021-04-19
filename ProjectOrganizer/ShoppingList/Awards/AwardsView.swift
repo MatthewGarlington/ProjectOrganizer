@@ -32,7 +32,6 @@ struct AwardsView: View {
                                 .padding()
                                 .frame(width: 100, height: 100)
                                 .foregroundColor(color(for: award))
-                              
                         }
                     }
                 }

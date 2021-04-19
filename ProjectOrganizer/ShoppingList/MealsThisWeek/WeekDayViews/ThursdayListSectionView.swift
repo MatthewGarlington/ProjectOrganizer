@@ -29,13 +29,11 @@ struct ThursdayListSection: View {
                                 .bold()
                             Text(" \(project.title ?? "")")
                                 .foregroundColor(Color(project.color ?? "Green"))
-
                         }
                     })
             }
             .onMove(perform: move)
         }
-
     }
 
     init(dataController: DataController, thursdayAssignment: Bool) {

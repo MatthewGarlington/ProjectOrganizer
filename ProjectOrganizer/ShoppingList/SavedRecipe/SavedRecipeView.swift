@@ -13,40 +13,27 @@ struct SavedRecipeView: View {
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
 
-
-
     var savedProjectsList: some View {
 
-
         ZStack {
-
             VStack {
                 List {
-                ForEach(viewModel.projects) { project in
-                    Section(header: SavedRecipeHeaderView(project: project)) {
-                        ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
-                            SavedItemRow(project: project, item: item)
-
+                    ForEach(viewModel.projects) { project in
+                        Section(header: SavedRecipeHeaderView(project: project)) {
+                            ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
+                                SavedItemRow(project: project, item: item)
+                            }
+                            // delete the items without messing up the sorted order
+                            .onDelete { offsets in
+                                viewModel.delete(offsets, from: project)
+                            }
                         }
-
-                        // delete the items without messing up the sorted order
-                        .onDelete { offsets in
-                            viewModel.delete(offsets, from: project)
-                        }
+                        .listStyle(InsetListStyle())
                     }
-                    .listStyle(InsetListStyle())
-
-                }
-
                 }
             }
         }
-
     }
-
-
-
-
 
     var body: some View {
         NavigationView {
@@ -55,16 +42,10 @@ struct SavedRecipeView: View {
                     Text("There's nothing here right now")
                         .foregroundColor(.secondary)
                 } else {
-
                     savedProjectsList
                 }
             }
-
-
             .navigationBarTitle("Saved Recipes")
-       
-
-
             .actionSheet(isPresented: $showingSortOrder) {
                 ActionSheet(title: Text("Sort Items"), message: Text("Sort items"), buttons: [
                     .default(Text("Optimized")) { viewModel.sortOrder = .optimized},
@@ -83,7 +64,6 @@ struct SavedRecipeView: View {
 }
 
 struct SavedRecipeView_Previews: PreviewProvider {
-
     static var previews: some View {
         SavedRecipeView(dataController: DataController.preview, showSavedProjects: false)
     }

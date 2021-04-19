@@ -121,8 +121,6 @@ struct EditRecipeForMealView: View {
         }
     }
 
-
-
     func clear() {
         project.sundayAssignment = false
         project.mondayAssignment = false

@@ -14,30 +14,26 @@ struct SavedItemRow: View {
     @ObservedObject var item: Item
     @State private var offset: CGSize = .zero
     @State private var engine = try? CHHapticEngine()
-
-
-
+    
     var body: some View {
         NavigationLink(destination: EditItemView(item: item)) {
             ZStack(alignment: .leading) {
                 Label {
                     Text(item.itemTitle)
-
+                    
                 } icon: {
                     Image(systemName: viewModel.icon)
                         .foregroundColor(viewModel.color.map { Color($0) } ?? .clear)
                 }
                 .padding()
             }
-
         }
-
     }
-
+    
     init(project: Project, item: Item) {
         let viewModel = ViewModel(project: project, item: item)
         _viewModel = StateObject(wrappedValue: viewModel)
-
+        
         self.item = item
     }
 }

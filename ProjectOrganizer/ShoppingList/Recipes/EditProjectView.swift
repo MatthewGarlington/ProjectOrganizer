@@ -17,12 +17,10 @@ struct EditProjectView: View {
     
     @State private var title: String
     @State private var detail: String
-   
+
     @State private var color: String
     @State private var showingDeleteConfirm = false
     @State private var mealsThisWeek = false
-
-  
 
     @State private var engine = try? CHHapticEngine()
     
@@ -37,7 +35,7 @@ struct EditProjectView: View {
         _title = State(wrappedValue: project.projectTitle)
         _detail = State(wrappedValue: project.projectDetail)
         _color = State(wrappedValue: project.projectColor)
-     
+
         
     }
     
@@ -64,11 +62,10 @@ struct EditProjectView: View {
 
                 }
 
-
                 Button(project.mealsThisWeek ? "Remove From Meals This Week Tab" : "Move To Meals This Week Tab") {
                     project.mealsThisWeek.toggle()
                 }
-         
+
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
                 }
@@ -88,7 +85,7 @@ struct EditProjectView: View {
                                 }
                                 )
 
-    )
+        )
 
         .onDisappear() {
             project.mealsThisWeek = true
@@ -108,8 +105,6 @@ struct EditProjectView: View {
         project.title = title
         project.detail = detail
         project.color = color
-
-        
     }
     
     func delete() {
@@ -118,50 +113,49 @@ struct EditProjectView: View {
     }
 
     func toggleClosed() {
-            project.closed.toggle()
+        project.closed.toggle()
 
-            if project.closed {
-               // Trigger Custom Haptics
-                do {
-                    try? engine?.start()
+        if project.closed {
+            // Trigger Custom Haptics
+            do {
+                try? engine?.start()
 
-                    let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0)
-                    let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+                let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 0)
+                let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
 
-                    let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
-                    let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
+                let start = CHHapticParameterCurve.ControlPoint(relativeTime: 0, value: 1)
+                let end = CHHapticParameterCurve.ControlPoint(relativeTime: 1, value: 0)
 
-                    let parameter = CHHapticParameterCurve(
-                        parameterID: .hapticIntensityControl,
-                        controlPoints: [start, end],
-                        relativeTime: 0
-                    )
-                    // Play the Haptic that was set up above
+                let parameter = CHHapticParameterCurve(
+                    parameterID: .hapticIntensityControl,
+                    controlPoints: [start, end],
+                    relativeTime: 0
+                )
+                // Play the Haptic that was set up above
 
-                    let event1 = CHHapticEvent(
-                        eventType: .hapticTransient,
-                        parameters: [intensity, sharpness],
-                        relativeTime: 0
-                    )
+                let event1 = CHHapticEvent(
+                    eventType: .hapticTransient,
+                    parameters: [intensity, sharpness],
+                    relativeTime: 0
+                )
 
-                    let event2 = CHHapticEvent(
-                        eventType: .hapticContinuous,
-                        parameters: [intensity, sharpness],
-                        relativeTime: 0.125,
-                        duration: 1
-                    )
+                let event2 = CHHapticEvent(
+                    eventType: .hapticContinuous,
+                    parameters: [intensity, sharpness],
+                    relativeTime: 0.125,
+                    duration: 1
+                )
 
-                    let pattern = try CHHapticPattern(events: [event1, event2],
-                                                      parameterCurves: [parameter]
-                    )
+                let pattern = try CHHapticPattern(events: [event1, event2],
+                                                  parameterCurves: [parameter]
+                )
 
-                    let player = try engine?.makePlayer(with: pattern)
-                    try player?.start(atTime: 0)
-                } catch {
+                let player = try engine?.makePlayer(with: pattern)
+                try player?.start(atTime: 0)
+            } catch {
 
-                    // playing haptics didn't work
-                }
-
+                // playing haptics didn't work
+            }
         }
     }
     

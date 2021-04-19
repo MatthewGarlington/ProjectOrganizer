@@ -10,7 +10,7 @@ import Foundation
 
 extension SavedItemRow {
     class ViewModel: ObservableObject {
-
+        
         let project: Project
         let item: Item
 
@@ -38,13 +38,10 @@ extension SavedItemRow {
                 return nil
             }
         }
-         init(project: Project, item: Item) {
+        init(project: Project, item: Item) {
             self.project = project
             self.item = item
         }
-
-
-
     }
 }
 

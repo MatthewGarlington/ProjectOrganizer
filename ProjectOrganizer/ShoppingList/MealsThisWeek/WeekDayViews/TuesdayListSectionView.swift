@@ -10,15 +10,15 @@ import SwiftUI
 
 struct TuesdayListSection: View {
     static let weekList: String? = "Meals This Week"
-
+    
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
     let noMealShown = "No Meal Shown For This Day"
-
+    
     let meals = [
         "Breakfast", "Lunch", "Dinner"
     ]
-
+    
     var body: some View {
         Section(header: Text("Tuesday")) {
             ForEach(viewModel.projects, id: \.self) { project in
@@ -30,15 +30,15 @@ struct TuesdayListSection: View {
                                 .bold()
                             Text(" \(project.title ?? "")")
                                 .foregroundColor(Color(project.color ?? "Green"))
-
+                            
                         }
                     })
             }
             .onMove(perform: move)
         }
-
+        
     }
-
+    
     init(dataController: DataController, tuesdayAssignment: Bool) {
         let viewModel = ViewModel(dataController: dataController, tuesdayAssignment: tuesdayAssignment)
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -46,10 +46,10 @@ struct TuesdayListSection: View {
     func move(from source: IndexSet, to destination: Int) {
         // Make an array of items from fetched results
         var revisedItems: [Project] = viewModel.projects.map{ $0 }
-
+        
         // change the order of the items in the array
         revisedItems.move(fromOffsets: source, toOffset: destination)
-
+        
         // update the userOrder attribute in revisedItems to
         // persist the new order. This is done in reverse order
         // to minimize changes to the indices.

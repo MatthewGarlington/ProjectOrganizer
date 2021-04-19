@@ -19,6 +19,7 @@ struct MondayListSection: View {
     ]
 
     var body: some View {
+
         Section(header: Text("Monday")) {
             ForEach(viewModel.projects, id: \.self) { project in
                 NavigationLink(
@@ -29,13 +30,11 @@ struct MondayListSection: View {
                                 .bold()
                             Text(" \(project.title ?? "")")
                                 .foregroundColor(Color(project.color ?? "Green"))
-
                         }
                     })
             }
             .onMove(perform: move)
         }
-
     }
 
     init(dataController: DataController, mondayAssignment: Bool) {

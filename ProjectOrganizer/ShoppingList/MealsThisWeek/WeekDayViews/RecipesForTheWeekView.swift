@@ -18,10 +18,9 @@ struct RecipesForTheWeekView: View {
 
 
     var weekMealsList: some View {
+
         VStack {
-
             List {
-
                 Section(header: Text("Not Assigned Yet")) {
                     ForEach(viewModel.projects) { project in
                         NavigationLink(
@@ -30,10 +29,7 @@ struct RecipesForTheWeekView: View {
                                 HStack {
                                     Text("\(project.title ?? "")")
                                         .foregroundColor(Color(project.color ?? "Green"))
-
-
                                 }
-
                             })
                     }
                     .onMove(perform: move)
@@ -46,18 +42,9 @@ struct RecipesForTheWeekView: View {
                 ThursdayListSection(dataController: dataController, thursdayAssignment: true)
                 FridayListSection(dataController: dataController, fridayAssignment: true)
                 SaturdayListSection(dataController: dataController, saturdayAssignment: true)
-
             }
-        
         }
-
-
-
-
     }
-
-
-
 
 
     func move(from source: IndexSet, to destination: Int) {
@@ -79,21 +66,16 @@ struct RecipesForTheWeekView: View {
         }
     }
 
-
     var body: some View {
         NavigationView {
+
             Group {
-
-
                 weekMealsList
             }
-
-
             .navigationBarTitle("Meals This Week")
             .navigationBarItems(trailing: EditButton())
 
         }
-        
     }
 
     init(dataController: DataController, mealsThisWeek: Bool) {

@@ -24,9 +24,6 @@ struct EditRecipeForThisWeek: View {
     @State private var engine = try? CHHapticEngine()
 
 
-
-
-
     // Added to make sure scaling down to smaller devices doesn't make the tappable items too small
     let colorColums = [
         GridItem(.adaptive(minimum: 44))
@@ -119,25 +116,25 @@ struct EditRecipeForThisWeek: View {
                     }
                     .onDisappear {
                         if project.mealsThisWeek && project.sundayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                         else if project.mealsThisWeek && project.mondayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                         else if project.mealsThisWeek && project.tuesdayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                         else if project.mealsThisWeek && project.wednesdayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                         else if project.mealsThisWeek && project.thursdayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                         else if project.mealsThisWeek && project.fridayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                         else if project.mealsThisWeek && project.saturdayAssignment {
-                        project.mealsThisWeek = false
+                            project.mealsThisWeek = false
                         }
                     }
                 }
@@ -182,7 +179,7 @@ struct EditRecipeForThisWeek: View {
         project.color = color
         project.meal = meal
     }
-
+    
     func delete() {
         dataController.delete(project)
         presentationMode.wrappedValue.dismiss()

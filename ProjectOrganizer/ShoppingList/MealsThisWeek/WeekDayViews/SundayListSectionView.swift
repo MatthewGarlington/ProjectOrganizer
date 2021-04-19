@@ -27,15 +27,10 @@ struct SundayListSection: View {
                             Text(" \(project.title ?? "")")
                                 .foregroundColor(Color(project.color ?? "Green"))
                         }
-
                     })
-
-
             }
-
             .onMove(perform: move)
         }
-
     }
 
     func move(from source: IndexSet, to destination: Int) {
@@ -56,7 +51,6 @@ struct SundayListSection: View {
                 Int16(reverseIndex)
         }
     }
-
 
     init(dataController: DataController, sundayAssignment: Bool) {
         let viewModel = ViewModel(dataController: dataController, sundayAssignment: sundayAssignment)

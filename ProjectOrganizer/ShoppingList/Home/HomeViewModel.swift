@@ -60,7 +60,6 @@ extension HomeView {
                                                          cacheName: nil
             )
 
-
             super.init()
             
             projectsController.delegate = self

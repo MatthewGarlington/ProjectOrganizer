@@ -13,53 +13,46 @@ struct ProjectsView: View {
     
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
-    
-    
-    
+
     var projectsList: some View {
+
         ZStack {
- 
             VStack {
                 List {
-                ForEach(viewModel.projects) { project in
-                    Section(header: ProjectHeaderView(project: project)) {
-                        ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
-                            ItemRowView(project: project, item: item)
-                        }
-                        // delete the items without messing up the sorted order
-                        .onDelete { offsets in
-                            viewModel.delete(offsets, from: project)
-                        }
+                    ForEach(viewModel.projects) { project in
+                        Section(header: ProjectHeaderView(project: project)) {
+                            ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
+                                ItemRowView(project: project, item: item)
+                            }
+                            // delete the items without messing up the sorted order
+                            .onDelete { offsets in
+                                viewModel.delete(offsets, from: project)
+                            }
 
+                            if viewModel.showClosedProjects == false {
+                                Button {
+                                    withAnimation {
+                                        viewModel.addItem(to: project)
 
-                        if viewModel.showClosedProjects == false {
-                            Button {
-                                withAnimation {
-                                viewModel.addItem(to: project)
-
+                                    }
+                                } label: {
+                                    Label("Add New Ingredient", systemImage: "plus")
                                 }
-                            } label: {
-                                Label("Add New Ingredient", systemImage: "plus")
                             }
                         }
+                        .listStyle(InsetListStyle())
                     }
-                    .listStyle(InsetListStyle())
-
-                }
                 }
             }
         }
     }
-       
-        
-    
     
     var addProjectToolbarItem: some ToolbarContent {
         
         ToolbarItem(placement: .navigationBarTrailing) {
             if viewModel.showClosedProjects == false {
                 Button {
-                        viewModel.addProject()
+                    viewModel.addProject()
                     
                 } label: {
                     Label("Add Recipe", systemImage: "plus")
@@ -90,11 +83,7 @@ struct ProjectsView: View {
                     projectsList
                 }
             }
-
-
             .navigationBarTitle(viewModel.showClosedProjects ? "Purchased" : "Shopping List")
-
-
             .toolbar {
                 addProjectToolbarItem
                 sortOrderToolbarItem
@@ -117,11 +106,11 @@ struct ProjectsView: View {
 }
 
 struct ProjectsView_Previews: PreviewProvider {
- 
+
     static var previews: some View {
         ProjectsView(dataController: DataController.preview, showClosedProjects: false)
     }
 }
- 
+
 
 

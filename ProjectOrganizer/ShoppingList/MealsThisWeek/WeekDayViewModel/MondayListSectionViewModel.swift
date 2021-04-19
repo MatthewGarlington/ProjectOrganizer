@@ -45,7 +45,6 @@ extension MondayListSection {
             } catch {
                 print("Failed to fetch our Recipes")
             }
-
         }
 
 
@@ -54,7 +53,6 @@ extension MondayListSection {
                 projects = newProjects
             }
         }
-
     }
 }
 

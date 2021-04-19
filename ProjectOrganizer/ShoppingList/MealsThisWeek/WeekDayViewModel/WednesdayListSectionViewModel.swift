@@ -45,16 +45,13 @@ extension WednesdayListSection {
             } catch {
                 print("Failed to fetch our Recipes")
             }
-
         }
-
 
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
             if let newProjects = controller.fetchedObjects as? [Project] {
                 projects = newProjects
             }
         }
-
     }
 }
 

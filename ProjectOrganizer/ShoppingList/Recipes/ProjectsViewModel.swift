@@ -75,7 +75,6 @@ extension ProjectsView {
                 projects = newProjects
             }
         }
-        
     }
 }
 

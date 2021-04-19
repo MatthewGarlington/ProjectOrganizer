@@ -14,7 +14,6 @@ struct SaturdayListSection: View {
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
 
-
     var body: some View {
         Section(header: Text("Saturday")) {
             ForEach(viewModel.projects, id: \.self) { project in
@@ -26,13 +25,11 @@ struct SaturdayListSection: View {
                                 .bold()
                             Text(" \(project.title ?? "")")
                                 .foregroundColor(Color(project.color ?? "Green"))
-
                         }
                     })
             }
             .onMove(perform: move)
         }
-
     }
 
     init(dataController: DataController, saturdayAssignment: Bool) {
