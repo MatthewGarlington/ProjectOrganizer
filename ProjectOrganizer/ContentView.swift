@@ -51,7 +51,7 @@ struct ContentView: View {
                     Text("Week")
                     }
                 }
-        .accentColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+        .accentColor(Color(#colorLiteral(red: 0.5910183787, green: 0.8180559874, blue: 0.7196184993, alpha: 1)))
         }
 }
 
