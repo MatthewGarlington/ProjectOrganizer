@@ -22,9 +22,26 @@ struct ItemListView: View {
     
     var body: some View {
         if items.isEmpty {
-            Text("Add Items")
-                .foregroundColor(.secondary)
-                .font(.largeTitle)
+            ZStack(alignment: .center) {
+                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                    .fill(Color.black.opacity(0.4))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 100)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                            .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1))]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                     )
+                VStack {
+                    Text("Nothing To Show Right Now")
+                    Text("Add Recipes to get started!")
+
+                }
+
+                .foregroundColor(.white)
+                .font(.title3)
+                .padding()
+            }
+
         } else {
             Text(title)
                 .font(.headline)
@@ -43,6 +60,7 @@ struct ItemListView: View {
 
                                     if item.completed {
                                        // Trigger Custom Haptics
+                                      
                                         do {
                                             try? engine?.start()
 
@@ -96,15 +114,23 @@ struct ItemListView: View {
 
 
                         VStack(alignment: .leading) {
+                            HStack(spacing: 5) {
                             Text(item.itemTitle)
-                                .font(.title2)
-                                .foregroundColor(.primary)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .onLongPressGesture {
-                                    withAnimation {
-                                        self.waveEffect.toggle()
-                                    }
+
+
+                                if item.itemAmount.isEmpty == false {
+                                    Text("(\(item.itemAmount))")
+                                        .foregroundColor(.secondary)
                                 }
+                            }
+                            .font(.title2)
+                            .foregroundColor(.primary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .onLongPressGesture {
+                                withAnimation {
+                                    self.waveEffect.toggle()
+                                }
+                            }
                             if item.itemDetail.isEmpty == false {
                                 Text(item.itemDetail)
                                     .foregroundColor(.secondary)
@@ -112,15 +138,13 @@ struct ItemListView: View {
                         }
                     }
                     .padding()
-                    .background(BlurView(style: .systemUltraThinMaterialLight))
+                    .background(BlurView(style: .systemThinMaterial))
                     .cornerRadius(10)
-                    .shadow(color: Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+                    .shadow(color: Color(item.project?.color ?? "Green").opacity(0.3), radius: 10, x: 5, y: 10)
                     .overlay(
                          RoundedRectangle(cornerRadius: 10)
                             .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color(item.project?.projectColor ?? "Green")]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
                      )
-                  
-  //              }
                 .animation(Animation.easeOut(duration: 0.5))
 
             }
@@ -133,12 +157,6 @@ struct ItemListView: View {
 
 
 }
-
-//struct ItemListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemListView()
-//    }
-//}
 
 extension View {
     public func gradientForeground(colors: [Color]) -> some View {
