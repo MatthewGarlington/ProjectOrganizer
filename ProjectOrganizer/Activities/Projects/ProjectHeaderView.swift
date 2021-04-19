@@ -20,6 +20,7 @@ struct ProjectHeaderView: View {
 //                    .accentColor(Color(project.projectColor))
             }
             Spacer()
+
             
             NavigationLink(destination: EditProjectView(project: project)) {
                 Image(systemName: "square.and.pencil")
