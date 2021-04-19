@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2A2B9726277F290024D307 /* CheckOffItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2A2B9626277F290024D307 /* CheckOffItemButton.swift */; };
 		6B31AB842620982C004E240A /* RecipesForTheWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */; };
 		6B31AB862620BC62004E240A /* RecipesForTheWeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */; };
 		6B31AB882620C0C6004E240A /* RecipesForThisWeekHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */; };
@@ -28,6 +29,7 @@
 		6B5850E4261A7C5200DDA49F /* EditSavedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850E3261A7C5200DDA49F /* EditSavedRecipeView.swift */; };
 		6B5850E6261A7D6C00DDA49F /* SavedRecipeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5850E5261A7D6C00DDA49F /* SavedRecipeHeaderView.swift */; };
 		6B8EE78F2617776500F95B9A /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8EE78E2617776500F95B9A /* ProjectsViewModel.swift */; };
+		6BB39E302625FA7800BEAAE7 /* HomeBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB39E2F2625FA7800BEAAE7 /* HomeBackGroundView.swift */; };
 		6BC00F112603DD9700C76453 /* ProjectOrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC00F102603DD9700C76453 /* ProjectOrganizerApp.swift */; };
 		6BC00F132603DD9700C76453 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC00F122603DD9700C76453 /* ContentView.swift */; };
 		6BC00F152603DD9900C76453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC00F142603DD9900C76453 /* Assets.xcassets */; };
@@ -86,6 +88,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B2A2B9626277F290024D307 /* CheckOffItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOffItemButton.swift; sourceTree = "<group>"; };
 		6B31AB832620982C004E240A /* RecipesForTheWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForTheWeekView.swift; sourceTree = "<group>"; };
 		6B31AB852620BC62004E240A /* RecipesForTheWeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForTheWeekViewModel.swift; sourceTree = "<group>"; };
 		6B31AB872620C0C6004E240A /* RecipesForThisWeekHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesForThisWeekHeaderView.swift; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		6B5850E3261A7C5200DDA49F /* EditSavedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSavedRecipeView.swift; sourceTree = "<group>"; };
 		6B5850E5261A7D6C00DDA49F /* SavedRecipeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecipeHeaderView.swift; sourceTree = "<group>"; };
 		6B8EE78E2617776500F95B9A /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		6BB39E2F2625FA7800BEAAE7 /* HomeBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackGroundView.swift; sourceTree = "<group>"; };
 		6BC00F0D2603DD9700C76453 /* ProjectOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC00F102603DD9700C76453 /* ProjectOrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOrganizerApp.swift; sourceTree = "<group>"; };
 		6BC00F122603DD9700C76453 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 			children = (
 				6BC00F262603E33300C76453 /* HomeView.swift */,
 				6B5850D12617A08000DDA49F /* HomeViewModel.swift */,
+				6BB39E2F2625FA7800BEAAE7 /* HomeBackGroundView.swift */,
 				6BC00F282603E34F00C76453 /* ItemListView.swift */,
 				6BC00F2A2603E36200C76453 /* ProjectSummaryView.swift */,
 			);
@@ -306,6 +311,7 @@
 				6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */,
 				6BC00F342603E3BD00C76453 /* EditProjectView.swift */,
 				6BC00F362603E3D000C76453 /* EditItemView.swift */,
+				6B2A2B9626277F290024D307 /* CheckOffItemButton.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -542,6 +548,7 @@
 				6B31AB982622324F004E240A /* TuesdayListSectionViewModel.swift in Sources */,
 				6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */,
 				6BC00F3B2603E46300C76453 /* Award.swift in Sources */,
+				6B2A2B9726277F290024D307 /* CheckOffItemButton.swift in Sources */,
 				6BC00F132603DD9700C76453 /* ContentView.swift in Sources */,
 				6B31AB842620982C004E240A /* RecipesForTheWeekView.swift in Sources */,
 				6BC00F402603E4C300C76453 /* DataController.swift in Sources */,
@@ -555,6 +562,7 @@
 				6BC00F4D2603E66000C76453 /* Bundle-Decodable.swift in Sources */,
 				6B31AB9E2622327F004E240A /* ThursdayListSectionViewModel.swift in Sources */,
 				6B5850E0261A709000DDA49F /* SavedRecipeView.swift in Sources */,
+				6BB39E302625FA7800BEAAE7 /* HomeBackGroundView.swift in Sources */,
 				6BC00F392603E45100C76453 /* AwardsView.swift in Sources */,
 				6B31ABA82623CFE1004E240A /* SavedItemRowViewModel.swift in Sources */,
 				6BC00F112603DD9700C76453 /* ProjectOrganizerApp.swift in Sources */,
