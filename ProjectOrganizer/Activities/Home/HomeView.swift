@@ -27,48 +27,77 @@ struct HomeView: View {
     
     @State var show = false
     @State var showAwardsModal = false
+    @State var waveEffect = false
     
     var body: some View {
         NavigationView {
+
         ZStack {
-           // HomeBackGround()
+
+           HomeBackGroundView()
+            .rotationEffect(Angle(degrees: waveEffect ? 360 : 0))
+            .offset(y: waveEffect ? 200 : 0)
+            .animation(.spring())
+            
+          
+            
             ScrollView {
                     VStack(alignment: .leading) {
+                        HStack {
+                            Text("Quick View")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            Spacer()
+          //                  Button("Add Data", action: viewModel.addSampleData)
+                            Button(action: {
+                                self.showAwardsModal = true
+                            }, label: {
+
+                                ZStack {
+                                Circle()
+                                    .fill(Color.black.opacity(0.5))
+                                    .frame(width: 75, height: 75)
+                                    .overlay(
+                                        Circle()
+                                             .stroke(lineWidth: 4)
+                                     )
+
+
+
+                               Image(systemName: "rosette")
+                                .font(.largeTitle)
+
+                                }
+                            })
+                        }
+                        .padding(.horizontal)
                         ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHGrid(rows: projectRows) {
-                                ForEach(viewModel.projects, content: ProjectSummaryView.init)
-                            }
-                            .padding([.horizontal, .top])
-                            .fixedSize(horizontal: false, vertical: true)
+//                            LazyHGrid(rows: projectRows) {
+//                                ForEach(viewModel.projects, content: ProjectSummaryView.init)
+//                            }
+//                            .padding([.horizontal, .top])
+//                            .fixedSize(horizontal: false, vertical: true)
                         }
                         VStack(alignment: .leading) {
-                            ItemListView(title: "up next", items: viewModel.upNext)
-                            ItemListView(title: "More to explore", items: viewModel.moreToExplore)
+                            ItemListView(title: "To Get", items: viewModel.moreToExplore, waveEffect: $waveEffect)
                         }
                         .padding(.horizontal)
                     }
+                    .padding()
                     .sheet(isPresented: $showAwardsModal) {
                         AwardsView()
                     }
+
+
                 
                 }
 
-                .toolbar {
-                    Button("Add Data", action: viewModel.addSampleData)
-                    }
-//            .toolbar {
-//                Button(action: {
-//                    self.showAwardsModal = true
-//                }, label: {
-//                   Image(systemName: "rosette")
-//                })
-//
-//
-//                }
-            }
-        .navigationBarTitle("Home")
-
         }
+
+
+        .navigationBarHidden(true)
+        }
+        
     }
 }
 
@@ -78,124 +107,5 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-struct HomeBackGround: View {
-    var body: some View {
-        ZStack {
-            
-            
-            AngularGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)), Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))]), center: .center, angle: .degrees(120))
-            
-//            LinearGradient(gradient: Gradient(colors: [Color("Background 1").opacity(0.4), Color("Background 1").opacity(0.7)]), startPoint: .bottom, endPoint: .top)
-//            ZStack {
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 100, height: 100)
-//                    .offset(x: -150, y: -400)
-//                    .blendMode(.softLight)
-//
-//                // Animation Rotates
-//                //                    .animation(Animation.easeOut(duration: 80).repeatForever(autoreverses: false))
-//                ZStack {
-//                    Image("Blob6")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .blendMode(.softLight)
-//                    Image("Blob6")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 150)
-//                        .blendMode(.softLight)
-//                    Image("Blob6")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 250)
-//                        .blendMode(.softLight)
-//
-//
-//                    Image("Blob6")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 350)
-//                        .blendMode(.softLight)
-//
-//
-//                }
-//
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 150, height: 150)
-//                    .offset(x: -150, y: -400)
-//                    // Added Rotation for the blob
-//                    //              .rotationEffect(Angle(degrees:  show ? 360 : 90))
-//                    .blendMode(.softLight)
-//                // Animation Rotates
-//                //                    .animation(Animation.easeOut(duration: 100).repeatForever(autoreverses: false))
-//                //
-//
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 200, height: 200)
-//                    .offset(x: -150, y: -400)
-//                    // Added Rotation for the blob
-//                    //              .rotationEffect(Angle(degrees:  show ? 360 : 90))
-//                    .blendMode(.softLight)
-//                // Animation Rotates
-//                //                    .animation(Animation.easeOut(duration: 120).repeatForever(autoreverses: false))
-//
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 300, height: 300)
-//                    .offset(x: -150, y: -400)
-//                    // Added Rotation for the blob
-//                    //              .rotationEffect(Angle(degrees:  show ? 360 : 90))
-//                    .blendMode(.softLight)
-//                // Animation Rotates
-//                //                    .animation(Animation.easeOut(duration: 140).repeatForever(autoreverses: false))
-//            }
-//            ZStack {
-//
-//
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 300, height: 300)
-//                    .offset(x: -150, y: -400)
-//                    // Added Rotation for the blob
-//                    //              .rotationEffect(Angle(degrees:  show ? 360 : 90))
-//                    .blendMode(.softLight)
-//                // Animation Rotates
-//                //                    .animation(Animation.easeOut(duration: 100).repeatForever(autoreverses: false))
-//
-//
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 350, height: 350)
-//                    .offset(x: -150, y: -400)
-//                    // Added Rotation for the blob
-//                    //              .rotationEffect(Angle(degrees:  show ? 360 : 90))
-//                    .blendMode(.softLight)
-//                //                    // Animation Rotates
-//                //                    .animation(Animation.easeOut(duration: 120).repeatForever(autoreverses: false))
-//
-//                Image("Blob4")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 400, height: 400)
-//                    .offset(x: -150, y: -400)
-//                    // Added Rotation for the blob
-//                    //                    .rotationEffect(Angle(degrees:  show ? 360 : 90))
-//                    .blendMode(.softLight)
-//                // Animation Rotates
-//                //                    .animation(Animation.linear(duration: 140).repeatForever(autoreverses: false))
-//                //
-//
-//            }
-        }
-        .edgesIgnoringSafeArea(.all)
-    }
-}
+
+
