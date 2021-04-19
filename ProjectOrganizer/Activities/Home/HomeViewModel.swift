@@ -12,18 +12,17 @@ extension HomeView {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         private let projectsController: NSFetchedResultsController<Project>
         private let itemsController:  NSFetchedResultsController<Item>
+     //   private let itemAnimationCompleteController: NSFetchedResultsController<Item>
         
         @Published var projects = [Project]()
         @Published var items = [Item]()
         
         var dataController: DataController
         
-        var upNext: ArraySlice<Item> {
-            items.prefix(3)
-        }
+      
         
         var moreToExplore: ArraySlice<Item> {
-            items.dropFirst(3)
+            items.dropLast(0)
         }
         
         init(dataController: DataController) {
@@ -60,6 +59,22 @@ extension HomeView {
                                                          sectionNameKeyPath: nil,
                                                          cacheName: nil
             )
+
+//
+//            let completedAnimationPredicate = NSPredicate(format: "animationComplete = false")
+//            itemRequest.predicate = completedAnimationPredicate
+//
+//            itemRequest.sortDescriptors = [
+//                NSSortDescriptor(keyPath: \Item.priority, ascending: false)
+//            ]
+//
+//            itemRequest.fetchLimit = 10
+//
+//            itemAnimationCompleteController = NSFetchedResultsController(fetchRequest: itemRequest,
+//                                                         managedObjectContext: dataController.container.viewContext,
+//                                                         sectionNameKeyPath: nil,
+//                                                         cacheName: nil
+//            )
             super.init()
             
             projectsController.delegate = self
