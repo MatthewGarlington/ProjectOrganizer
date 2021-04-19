@@ -279,10 +279,10 @@
 		6BC00F222603E2EA00C76453 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
-				6B5850E72620872500DDA49F /* MealsThisWeek */,
 				6B5850DE261A704F00DDA49F /* SavedRecipe */,
 				6BC00F232603E30100C76453 /* Home */,
 				6BC00F242603E30A00C76453 /* Recipes */,
+				6B5850E72620872500DDA49F /* MealsThisWeek */,
 				6BC00F252603E31100C76453 /* Awards */,
 			);
 			path = Activities;
