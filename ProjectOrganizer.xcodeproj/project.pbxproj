@@ -282,7 +282,7 @@
 				6B5850E72620872500DDA49F /* MealsThisWeek */,
 				6B5850DE261A704F00DDA49F /* SavedRecipe */,
 				6BC00F232603E30100C76453 /* Home */,
-				6BC00F242603E30A00C76453 /* Projects */,
+				6BC00F242603E30A00C76453 /* Recipes */,
 				6BC00F252603E31100C76453 /* Awards */,
 			);
 			path = Activities;
@@ -300,7 +300,7 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		6BC00F242603E30A00C76453 /* Projects */ = {
+		6BC00F242603E30A00C76453 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
 				6BC00F2C2603E37D00C76453 /* ProjectsView.swift */,
@@ -313,7 +313,7 @@
 				6BC00F362603E3D000C76453 /* EditItemView.swift */,
 				6B2A2B9626277F290024D307 /* CheckOffItemButton.swift */,
 			);
-			path = Projects;
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 		6BC00F252603E31100C76453 /* Awards */ = {
