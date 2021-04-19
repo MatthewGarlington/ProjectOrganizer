@@ -66,7 +66,6 @@ struct ItemRowView: View {
                                 .rotationEffect(Angle(degrees: 90))
                                 .rotation3DEffect(Angle(degrees: 180),
                                     axis: (x: 1, y: 0, z: 0))
-                               // .shadow(color: ((colorStroke)).opacity(0.3), radius: 5, x: 3, y: 3)
                                 .animation(.easeInOut)
 
                         )
@@ -84,10 +83,6 @@ struct ItemRowView: View {
                                      )
 
                         )
-                //        .onTapGesture {
-                //
-                //            self.animationStroke = 2
-                //        }
 
                         .overlay(
                             Circle()
@@ -191,7 +186,7 @@ struct ItemRowView: View {
                         .onTapGesture(count: 1) {
 
 
-                           // self.press = true
+
                             item.completed.toggle()
 
 

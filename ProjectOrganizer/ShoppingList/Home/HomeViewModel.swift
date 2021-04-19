@@ -12,7 +12,7 @@ extension HomeView {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         private let projectsController: NSFetchedResultsController<Project>
         private let itemsController:  NSFetchedResultsController<Item>
-     //   private let itemAnimationCompleteController: NSFetchedResultsController<Item>
+     
         
         @Published var projects = [Project]()
         @Published var items = [Item]()
@@ -60,21 +60,7 @@ extension HomeView {
                                                          cacheName: nil
             )
 
-//
-//            let completedAnimationPredicate = NSPredicate(format: "animationComplete = false")
-//            itemRequest.predicate = completedAnimationPredicate
-//
-//            itemRequest.sortDescriptors = [
-//                NSSortDescriptor(keyPath: \Item.priority, ascending: false)
-//            ]
-//
-//            itemRequest.fetchLimit = 10
-//
-//            itemAnimationCompleteController = NSFetchedResultsController(fetchRequest: itemRequest,
-//                                                         managedObjectContext: dataController.container.viewContext,
-//                                                         sectionNameKeyPath: nil,
-//                                                         cacheName: nil
-//            )
+
             super.init()
             
             projectsController.delegate = self

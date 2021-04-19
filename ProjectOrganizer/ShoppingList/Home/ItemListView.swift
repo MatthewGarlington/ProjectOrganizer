@@ -17,7 +17,7 @@ struct ItemListView: View {
     @Binding var waveEffect: Bool
     
 
- //  @State private var animationComplete = false
+
     @State private var engine = try? CHHapticEngine()
     
     var body: some View {
@@ -47,7 +47,7 @@ struct ItemListView: View {
                 .font(.headline)
                 .padding(.top)
             ForEach(items) { item in
-        //        NavigationLink(destination: EditItemView(item: item)) {
+    
                     HStack(spacing: 20) {
                         Button(action: {
                             withAnimation {

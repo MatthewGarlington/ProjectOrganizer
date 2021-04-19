@@ -62,9 +62,6 @@ struct EditProjectView: View {
 
                     toggleClosed()
 
-//                    if !project.closed {
-//                        project.mealsThisWeek = true
-//                    }
                 }
 
 

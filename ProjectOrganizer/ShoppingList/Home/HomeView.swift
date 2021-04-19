@@ -48,6 +48,11 @@ struct HomeView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                             Spacer()
+                            
+                            // For Simulator to add Example data
+                            // Replace Awards button with Add Data
+                            // Button below
+                            
           //                  Button("Add Data", action: viewModel.addSampleData)
                             Button(action: {
                                 self.showAwardsModal = true
@@ -71,13 +76,7 @@ struct HomeView: View {
                             })
                         }
                         .padding(.horizontal)
-                        ScrollView(.horizontal, showsIndicators: false) {
-//                            LazyHGrid(rows: projectRows) {
-//                                ForEach(viewModel.projects, content: ProjectSummaryView.init)
-//                            }
-//                            .padding([.horizontal, .top])
-//                            .fixedSize(horizontal: false, vertical: true)
-                        }
+
                         VStack(alignment: .leading) {
                             ItemListView(title: "To Get", items: viewModel.moreToExplore, waveEffect: $waveEffect)
                         }

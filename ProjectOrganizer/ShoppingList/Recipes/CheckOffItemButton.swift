@@ -92,10 +92,7 @@ struct CheckButton: View {
                      )
 
         )
-//        .onTapGesture {
-//
-//            self.animationStroke = 2
-//        }
+
 
         .overlay(
             Circle()
