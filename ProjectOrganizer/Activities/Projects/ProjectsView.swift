@@ -59,11 +59,9 @@ struct ProjectsView: View {
         ToolbarItem(placement: .navigationBarTrailing) {
             if viewModel.showClosedProjects == false {
                 Button {
-                    withAnimation {
                         viewModel.addProject()
-                        
-                    }
-                    } label: {
+                    
+                } label: {
                     Label("Add Recipe", systemImage: "plus")
                 }
             }
