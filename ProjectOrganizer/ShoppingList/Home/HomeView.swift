@@ -12,6 +12,12 @@ struct HomeView: View {
 
     static let tag: String? = "Home"
     @StateObject var viewModel: ViewModel
+    @EnvironmentObject var dataController: DataController
+    @StateObject var store = UserSettings()
+
+    
+
+
 
     var projectRows: [GridItem] {
         [GridItem(.fixed(100))]
@@ -22,17 +28,83 @@ struct HomeView: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-    @State var show = false
+    @State var show = true
     @State var showAwardsModal = false
     @State var waveEffect = false
+    @State var rotateEffect = false
+    @State var showSettingsModal = false
+    @State var backgroundColor = "Light Blue"
+    @State var red = 2
+    @State private var tapped = 0
+    let delaySeconds = 0.7
     
     var body: some View {
         NavigationView {
             ZStack {
-                HomeBackGroundView()
-                    .rotationEffect(Angle(degrees: waveEffect ? 360 : 0))
-                    .offset(y: waveEffect ? 200 : 0)
-                    .animation(.spring())
+                ZStack {
+
+                    leftCornerCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: -150, y: -400)
+                    bottomCornerCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: -150, y: 400)
+                    centerCornerCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: 0, y: 0)
+                    bottomCornerCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: 200, y: -450)
+
+                    bottomCornerCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: 175, y: 390)
+
+            }
+
+                    .environmentObject(store)
+                ZStack {
+                smallCirclePattern()
+                    .scaleEffect(tapped > 0 ? 0.90 : 1)
+                    .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                    .offset(x: -50, y: -150)
+                smallLightCircle()
+                    .scaleEffect(tapped > 0 ? 0.90 : 1)
+                    .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                    .offset(x: 100, y: 150)
+                smallLightCircle()
+                    .scaleEffect(tapped > 0 ? 0.90 : 1)
+                    .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                    .offset(x: -125, y: -250)
+                smallCirclePattern()
+                    .scaleEffect(tapped > 0 ? 0.90 : 1)
+                    .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                    .offset(x: 150, y: 275)
+
+                    smallCirclePattern()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: -75, y: 100)
+                    smallLightCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: -150, y: 200)
+                    smallLightCircle()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: 175, y: -250)
+                    smallCirclePattern()
+                        .scaleEffect(tapped > 0 ? 0.90 : 1)
+                        .animation(Animation.interpolatingSpring(stiffness: 25, damping: 5, initialVelocity: 20).repeatCount(1, autoreverses: true), value: self.tapped)
+                        .offset(x: 100, y: -150)
+
+                }
+                    .environmentObject(store)
 
                 ScrollView {
                     VStack(alignment: .leading) {
@@ -62,11 +134,28 @@ struct HomeView: View {
                                         .font(.largeTitle)
                                 }
                             })
+
+                            Button(action: {
+                                self.showSettingsModal = true
+                            }, label: {
+
+                                ZStack {
+                                    Circle()
+                                        .fill(Color.black.opacity(0.5))
+                                        .frame(width: 75, height: 75)
+                                        .overlay(
+                                            Circle()
+                                                .stroke(lineWidth: 4)
+                                        )
+                                    Image(systemName: "gear")
+                                        .font(.largeTitle)
+                                }
+                            })
                         }
                         .padding(.horizontal)
 
                         VStack(alignment: .leading) {
-                            ItemListView(title: "To Get", items: viewModel.moreToExplore, waveEffect: $waveEffect)
+                            ItemListView(title: "To Get", items: viewModel.moreToExplore, waveEffect: $waveEffect, rotateEffect: $rotateEffect, tapped: $tapped)
                         }
                         .padding(.horizontal)
                     }
@@ -74,9 +163,19 @@ struct HomeView: View {
                     .sheet(isPresented: $showAwardsModal) {
                         AwardsView()
                     }
+                    .sheet(isPresented: $showSettingsModal) {
+                       UserDefaultsView()
+                        .environmentObject(store)
+
+
+                    }
+                    
                 }
+
             }
             .navigationBarHidden(true)
+
+
         }
     }
 }
