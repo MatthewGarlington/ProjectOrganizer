@@ -14,6 +14,10 @@ struct ItemListView: View {
 
     @EnvironmentObject var dataController: DataController
     @Binding var waveEffect: Bool
+    @Binding var rotateEffect: Bool
+    @Binding var tapped: Int 
+    let delaySeconds = 0.7
+ 
 
     @State private var engine = try? CHHapticEngine()
     
@@ -60,8 +64,15 @@ struct ItemListView: View {
 
                             item.completed = true
 
+                                    self.tapped += 1
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + self.delaySeconds) {
+                                        self.tapped = 0
+                                    }
+
+
                             if item.completed {
                                 // Trigger Custom Haptics
+                                rotateEffect.toggle()
 
                                 do {
                                     try? engine?.start()
