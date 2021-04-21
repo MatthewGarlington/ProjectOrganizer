@@ -23,7 +23,7 @@ Before you begin, ensure you have met the following requirements:
 ### Check Off Animations with Haptic feed back with all changes stored to Core Data:
 ![giphy-2](https://user-images.githubusercontent.com/61671107/115602505-0319da80-a2ad-11eb-916f-423ed240ddb4.gif)
 
-### Menu's for all Recipe, ingredient, and meal data that persists:
+### Menus for all Recipe, ingredient, and meal data that persist:
 ![giphy-3](https://user-images.githubusercontent.com/61671107/115602723-3fe5d180-a2ad-11eb-928b-4c9325302247.gif)
 
 ### Edit button to change placement and delete:
