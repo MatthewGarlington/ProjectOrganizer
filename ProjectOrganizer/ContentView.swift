@@ -13,6 +13,7 @@ import SwiftUI
 struct ContentView: View {
     @SceneStorage("selectedView") var selectedView: String?
     @EnvironmentObject var dataController: DataController
+    @ObservedObject var userSettings = UserSettings()
     
     init() {
         UITabBar.appearance().barTintColor = UIColor.init(ciColor: .clear)
@@ -51,7 +52,7 @@ struct ContentView: View {
                     Text("Week")
                     }
                 }
-        .accentColor(Color(#colorLiteral(red: 0.5910183787, green: 0.8180559874, blue: 0.7196184993, alpha: 1)))
+        .accentColor(Color(userSettings.accentColorCustom))
         }
 }
 
