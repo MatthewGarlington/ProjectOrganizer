@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct ProjectOrganizerApp: App {
     @StateObject var dataController: DataController
+    @StateObject var store = UserSettings()
+    
     
     init() {
         let dataController = DataController()
@@ -25,6 +27,8 @@ struct ProjectOrganizerApp: App {
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 // For Our own code to read Core Data values
                 .environmentObject(dataController)
+                .environmentObject(store)
+
                 // Save the app when the user loses focus and this app is no longer presenting
                 .onReceive(
                     // Automatically save when we detect that we are no longer
@@ -38,6 +42,8 @@ struct ProjectOrganizerApp: App {
     
     func save(_ note: Notification) {
         dataController.save()
+
         
     }
+    
 }
