@@ -31,6 +31,7 @@ struct HomeBackGroundView: View {
                     .offset(x: 175, y: 390)
 
         }
+     
     }
 }
 
@@ -63,9 +64,9 @@ struct HomeForegroundView: View {
 }
 
 
-struct HomeForegroundView_Previews: PreviewProvider {
+struct HomeBackGroundView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeForegroundView()
+        HomeBackGroundView()
     }
 }
 
@@ -212,9 +213,6 @@ struct centerCornerCircle: View {
                 .frame(width: 350, height: 350)
                 .foregroundColor(Color(store.backGroundColorCustom).opacity(0.2))
 
-            Circle()
-                .frame(width: 400, height: 400)
-                .foregroundColor(Color(store.backGroundColorCustom).opacity(0.1))
         }
         .environmentObject(store)
     }
