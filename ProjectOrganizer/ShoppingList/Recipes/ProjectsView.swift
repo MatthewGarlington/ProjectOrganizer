@@ -14,20 +14,28 @@ struct ProjectsView: View {
     @StateObject var viewModel: ViewModel
     @State private var showingSortOrder = false
 
+    @State private var press = false
+    @State private var animationStroke: CGFloat = 1
+    @State private var explodeStroke: CGFloat = 1
+    @GestureState var tap = false
+
     var projectsList: some View {
 
         ZStack {
             VStack {
                 List {
+                    if viewModel.showClosedProjects == false {
                     ForEach(viewModel.projects) { project in
                         Section(header: ProjectHeaderView(project: project)) {
                             ForEach(project.projectItems(using: viewModel.sortOrder)) { item in
                                 ItemRowView(project: project, item: item)
                             }
+
                             // delete the items without messing up the sorted order
                             .onDelete { offsets in
                                 viewModel.delete(offsets, from: project)
                             }
+                        }
 
                             if viewModel.showClosedProjects == false {
                                 Button {
@@ -64,10 +72,12 @@ struct ProjectsView: View {
     var sortOrderToolbarItem: some ToolbarContent {
         
         ToolbarItem(placement: .navigationBarLeading) {
+            if viewModel.showClosedProjects == false {
             Button {
                 showingSortOrder.toggle()
             } label: {
                 Label("Sort", systemImage: "arrow.up.arrow.down")
+            }
             }
         }
     }
