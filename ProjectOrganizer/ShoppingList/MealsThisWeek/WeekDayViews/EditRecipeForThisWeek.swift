@@ -147,22 +147,11 @@ struct EditRecipeForThisWeek: View {
                     showingClearConfirm.toggle()
                 }
                 .accentColor(.secondary)
-
-                Button("Delete this recipe") {
-                    showingDeleteConfirm.toggle()
-                }
-                .accentColor(.red)
             }
         }
         .navigationTitle("Edit Recipe")
         .onDisappear(perform: dataController.save)
-        .alert(isPresented: $showingDeleteConfirm) {
-            Alert(title: Text("Delete Recipe?"),
-                  message: Text("Are you sure you want to delete this recipe? You will delete the Recipe and all the ingredients that the recipe contains throughout the application. This cannot be undone"),
-                  primaryButton: .default(Text("Delete"),
-                                          action: delete),
-                  secondaryButton: .cancel())
-        }
+
         .alert(isPresented: $showingClearConfirm) {
             Alert(title: Text("Clear Recipe from List?"),
                   message: Text("Are you sure you want to remove this meal from this Week's Meals? This action will not remove the Recipe or ingredients entirely"),
