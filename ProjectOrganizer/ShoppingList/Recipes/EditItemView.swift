@@ -29,6 +29,7 @@ struct EditItemView: View {
         Form {
             Section(header: Text("Basic Settings")) {
                 // The onChange modifier adds a call to the create extension of Binding-onChange which stores the data
+                
                 TextField("Ingredient name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
                 TextField("Amount", text: $amount.onChange(update))
