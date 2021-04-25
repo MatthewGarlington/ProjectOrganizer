@@ -5,21 +5,40 @@
 //  Created by Matthew Garlington on 3/18/21.
 //
 
+import Foundation
+import Combine
 import SwiftUI
 
+struct TitleBarTwo: View {
+
+    var body: some View {
+        HStack {
+            Text("Awards")
+                .bold()
+                .font(.largeTitle)
+
+
+            Spacer()
+        }
+        .padding([.horizontal, .top])
+    }
+}
+
+
 struct AwardsView: View {
-    static let tag: String? = "Awards"
+  //  static let tag: String? = "Awards"
     
     @EnvironmentObject var dataController: DataController
     @State private var selectedAward = Award.example
     @State private var showingAwardDetail = false
     var colums: [GridItem] {
-        [GridItem(.adaptive(minimum: 100, maximum: 100))]
+        [GridItem(.fixed(40), spacing: 20),
+                    GridItem(.fixed(40), spacing: 20),
+                    GridItem(.fixed(40), spacing: 20)]
     }
     
     var body: some View {
         NavigationView {
-            ScrollView {
                 LazyVGrid(columns: colums) {
                     ForEach(Award.allAwards) { award in
                         Button {
@@ -35,7 +54,6 @@ struct AwardsView: View {
                         }
                     }
                 }
-            }
             .navigationTitle("Awards")
         }
         .alert(isPresented: $showingAwardDetail, content: getAwardAlert)
