@@ -28,16 +28,26 @@ struct ItemRowView: View {
         NavigationLink(destination: EditItemView(item: item)) {
             ZStack(alignment: .center) {
                 Label {
-                    HStack(spacing: 5) {
+                    VStack {
+                    HStack {
                         
                         Text(item.itemTitle).strikethrough(item.completed ? true : false)
+
                         if item.itemAmount.isEmpty == false {
                             Text("(\(item.itemAmount))")
                                 .foregroundColor(.secondary)
                         }
                     }
+                    .padding(.horizontal)
                     .foregroundColor(colorItem)
-                    .padding()
+
+                        if item.itemDetail.isEmpty == false {
+                            Text("\(item.itemDetail)")
+                                .foregroundColor(.secondary)
+                        }
+
+
+                    }
                 } icon: {
                     Image(systemName: viewModel.icon)
                         .foregroundColor(colorItem)
