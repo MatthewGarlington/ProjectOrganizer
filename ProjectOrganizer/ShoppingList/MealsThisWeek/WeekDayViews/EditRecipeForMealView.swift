@@ -62,11 +62,13 @@ struct EditRecipeForMealView: View {
 
 
             // section 4
-            Section(header: Text("Moving to the Shopping List moves The Recipe to the Shopping List tab")) {
-                Button(project.closed ? "Move to Shopping List" : "Move To Purchased") {
-                    toggleClosed()
-                }
-
+            Section(header: Text("Move Recipe to unassigned")) {
+//                Button(action: {
+//                    toggleClosed()
+//                }, label: {
+//                    Text("Move to the Shopping List")
+//                        .opacity(!project.closed ? 1 : 0)
+//                })
                 Button(action: {
                     project.mealsThisWeek = true
                     project.sundayAssignment = false
@@ -90,28 +92,17 @@ struct EditRecipeForMealView: View {
                 )
 
             }
-                Section(footer: Text("Clearing removes the recipe from the Shopping List Tab, deleting it removes the recipe entirely")) {
+                Section(footer: Text("Clearing removes the recipe from the Meals This Week")) {
 
                     Button("Clear this recipe") {
                         showingClearConfirm.toggle()
                     }
                     .accentColor(.secondary)
 
-                    Button("Delete this recipe") {
-                    showingDeleteConfirm.toggle()
-                }
-                .accentColor(.red)
             }
         }
         .navigationTitle("Edit Recipe")
         .onDisappear(perform: dataController.save)
-        .alert(isPresented: $showingDeleteConfirm) {
-            Alert(title: Text("Delete Recipe?"),
-                  message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
-                  primaryButton: .default(Text("Delete"),
-                                          action: delete),
-                  secondaryButton: .cancel())
-        }
         .alert(isPresented: $showingClearConfirm) {
             Alert(title: Text("Clear Recipe from List?"),
                   message: Text("Are you sure you want to remove this meal from this Week's Meals? This action will not remove the Recipe or ingredients entirely"),
@@ -144,9 +135,9 @@ struct EditRecipeForMealView: View {
     }
 
     func toggleClosed() {
-        project.closed.toggle()
+        project.closed = false
 
-            if project.closed {
+            if !project.closed {
                // Trigger Custom Haptics
                 do {
                     try? engine?.start()
