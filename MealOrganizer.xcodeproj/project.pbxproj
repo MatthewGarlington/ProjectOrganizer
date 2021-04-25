@@ -130,7 +130,7 @@
 		6B91D68A262DC48D00226D1E /* FridayListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridayListSectionView.swift; sourceTree = "<group>"; };
 		6B91D68C262DC4CB00226D1E /* SaturdayListSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturdayListSectionView.swift; sourceTree = "<group>"; };
 		6BB39E2F2625FA7800BEAAE7 /* HomeBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackGroundView.swift; sourceTree = "<group>"; };
-		6BC00F0D2603DD9700C76453 /* ProjectOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC00F0D2603DD9700C76453 /* MealOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC00F102603DD9700C76453 /* ProjectOrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOrganizerApp.swift; sourceTree = "<group>"; };
 		6BC00F122603DD9700C76453 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6BC00F142603DD9900C76453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		6BC00F562603E7B900C76453 /* Projects-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Projects-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		6BC00F582603E7C800C76453 /* Item-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		6BC00F5A2603E89400C76453 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		6BC00F652603ED3700C76453 /* ProjectOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC00F652603ED3700C76453 /* MealOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC00F672603ED3700C76453 /* ProjectOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOrganizerTests.swift; sourceTree = "<group>"; };
 		6BC00F692603ED3700C76453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BC00F6F2603ED9100C76453 /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		6BC00F7A2603EE9B00C76453 /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		6BC00F7C2603EEAF00C76453 /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
 		6BC00F7E2603FB7000C76453 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
-		6BC00F842604185600C76453 /* ProjectOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BC00F842604185600C76453 /* MealOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC00F862604185600C76453 /* ProjectOrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOrganizerUITests.swift; sourceTree = "<group>"; };
 		6BC00F882604185600C76453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,9 +268,9 @@
 		6BC00F0E2603DD9700C76453 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6BC00F0D2603DD9700C76453 /* ProjectOrganizer.app */,
-				6BC00F652603ED3700C76453 /* ProjectOrganizerTests.xctest */,
-				6BC00F842604185600C76453 /* ProjectOrganizerUITests.xctest */,
+				6BC00F0D2603DD9700C76453 /* MealOrganizer.app */,
+				6BC00F652603ED3700C76453 /* MealOrganizerTests.xctest */,
+				6BC00F842604185600C76453 /* MealOrganizerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -421,9 +421,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6BC00F0C2603DD9700C76453 /* ProjectOrganizer */ = {
+		6BC00F0C2603DD9700C76453 /* MealOrganizer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BC00F1C2603DD9900C76453 /* Build configuration list for PBXNativeTarget "ProjectOrganizer" */;
+			buildConfigurationList = 6BC00F1C2603DD9900C76453 /* Build configuration list for PBXNativeTarget "MealOrganizer" */;
 			buildPhases = (
 				6BC00F092603DD9700C76453 /* Sources */,
 				6BC00F0A2603DD9700C76453 /* Frameworks */,
@@ -433,14 +433,14 @@
 			);
 			dependencies = (
 			);
-			name = ProjectOrganizer;
+			name = MealOrganizer;
 			productName = ProjectOrganizer;
-			productReference = 6BC00F0D2603DD9700C76453 /* ProjectOrganizer.app */;
+			productReference = 6BC00F0D2603DD9700C76453 /* MealOrganizer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6BC00F642603ED3700C76453 /* ProjectOrganizerTests */ = {
+		6BC00F642603ED3700C76453 /* MealOrganizerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BC00F6C2603ED3800C76453 /* Build configuration list for PBXNativeTarget "ProjectOrganizerTests" */;
+			buildConfigurationList = 6BC00F6C2603ED3800C76453 /* Build configuration list for PBXNativeTarget "MealOrganizerTests" */;
 			buildPhases = (
 				6BC00F612603ED3700C76453 /* Sources */,
 				6BC00F622603ED3700C76453 /* Frameworks */,
@@ -451,14 +451,14 @@
 			dependencies = (
 				6BC00F6B2603ED3700C76453 /* PBXTargetDependency */,
 			);
-			name = ProjectOrganizerTests;
+			name = MealOrganizerTests;
 			productName = ProjectOrganizerTests;
-			productReference = 6BC00F652603ED3700C76453 /* ProjectOrganizerTests.xctest */;
+			productReference = 6BC00F652603ED3700C76453 /* MealOrganizerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6BC00F832604185600C76453 /* ProjectOrganizerUITests */ = {
+		6BC00F832604185600C76453 /* MealOrganizerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BC00F8B2604185600C76453 /* Build configuration list for PBXNativeTarget "ProjectOrganizerUITests" */;
+			buildConfigurationList = 6BC00F8B2604185600C76453 /* Build configuration list for PBXNativeTarget "MealOrganizerUITests" */;
 			buildPhases = (
 				6BC00F802604185600C76453 /* Sources */,
 				6BC00F812604185600C76453 /* Frameworks */,
@@ -469,9 +469,9 @@
 			dependencies = (
 				6BC00F8A2604185600C76453 /* PBXTargetDependency */,
 			);
-			name = ProjectOrganizerUITests;
+			name = MealOrganizerUITests;
 			productName = ProjectOrganizerUITests;
-			productReference = 6BC00F842604185600C76453 /* ProjectOrganizerUITests.xctest */;
+			productReference = 6BC00F842604185600C76453 /* MealOrganizerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -496,7 +496,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6BC00F082603DD9700C76453 /* Build configuration list for PBXProject "ProjectOrganizer" */;
+			buildConfigurationList = 6BC00F082603DD9700C76453 /* Build configuration list for PBXProject "MealOrganizer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -509,9 +509,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6BC00F0C2603DD9700C76453 /* ProjectOrganizer */,
-				6BC00F642603ED3700C76453 /* ProjectOrganizerTests */,
-				6BC00F832604185600C76453 /* ProjectOrganizerUITests */,
+				6BC00F0C2603DD9700C76453 /* MealOrganizer */,
+				6BC00F642603ED3700C76453 /* MealOrganizerTests */,
+				6BC00F832604185600C76453 /* MealOrganizerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -637,12 +637,12 @@
 /* Begin PBXTargetDependency section */
 		6BC00F6B2603ED3700C76453 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6BC00F0C2603DD9700C76453 /* ProjectOrganizer */;
+			target = 6BC00F0C2603DD9700C76453 /* MealOrganizer */;
 			targetProxy = 6BC00F6A2603ED3700C76453 /* PBXContainerItemProxy */;
 		};
 		6BC00F8A2604185600C76453 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6BC00F0C2603DD9700C76453 /* ProjectOrganizer */;
+			target = 6BC00F0C2603DD9700C76453 /* MealOrganizer */;
 			targetProxy = 6BC00F892604185600C76453 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -779,6 +779,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Matthew.Garlington.ProjectOrganizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -801,6 +802,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = Matthew.Garlington.ProjectOrganizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -824,7 +826,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectOrganizer.app/ProjectOrganizer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MealOrganizer.app/MealOrganizer";
 			};
 			name = Debug;
 		};
@@ -844,7 +846,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectOrganizer.app/ProjectOrganizer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MealOrganizer.app/MealOrganizer";
 			};
 			name = Release;
 		};
@@ -889,7 +891,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6BC00F082603DD9700C76453 /* Build configuration list for PBXProject "ProjectOrganizer" */ = {
+		6BC00F082603DD9700C76453 /* Build configuration list for PBXProject "MealOrganizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6BC00F1A2603DD9900C76453 /* Debug */,
@@ -898,7 +900,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6BC00F1C2603DD9900C76453 /* Build configuration list for PBXNativeTarget "ProjectOrganizer" */ = {
+		6BC00F1C2603DD9900C76453 /* Build configuration list for PBXNativeTarget "MealOrganizer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6BC00F1D2603DD9900C76453 /* Debug */,
@@ -907,7 +909,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6BC00F6C2603ED3800C76453 /* Build configuration list for PBXNativeTarget "ProjectOrganizerTests" */ = {
+		6BC00F6C2603ED3800C76453 /* Build configuration list for PBXNativeTarget "MealOrganizerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6BC00F6D2603ED3800C76453 /* Debug */,
@@ -916,7 +918,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6BC00F8B2604185600C76453 /* Build configuration list for PBXNativeTarget "ProjectOrganizerUITests" */ = {
+		6BC00F8B2604185600C76453 /* Build configuration list for PBXNativeTarget "MealOrganizerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6BC00F8C2604185600C76453 /* Debug */,

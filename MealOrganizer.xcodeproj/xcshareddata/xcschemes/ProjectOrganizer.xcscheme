@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6BC00F0C2603DD9700C76453"
-               BuildableName = "ProjectOrganizer.app"
-               BlueprintName = "ProjectOrganizer"
-               ReferencedContainer = "container:ProjectOrganizer.xcodeproj">
+               BuildableName = "MealOrganizer.app"
+               BlueprintName = "MealOrganizer"
+               ReferencedContainer = "container:MealOrganizer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6BC00F0C2603DD9700C76453"
-            BuildableName = "ProjectOrganizer.app"
-            BlueprintName = "ProjectOrganizer"
-            ReferencedContainer = "container:ProjectOrganizer.xcodeproj">
+            BuildableName = "MealOrganizer.app"
+            BlueprintName = "MealOrganizer"
+            ReferencedContainer = "container:MealOrganizer.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -44,9 +44,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6BC00F642603ED3700C76453"
-               BuildableName = "ProjectOrganizerTests.xctest"
-               BlueprintName = "ProjectOrganizerTests"
-               ReferencedContainer = "container:ProjectOrganizer.xcodeproj">
+               BuildableName = "MealOrganizerTests.xctest"
+               BlueprintName = "MealOrganizerTests"
+               ReferencedContainer = "container:MealOrganizer.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -54,9 +54,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6BC00F832604185600C76453"
-               BuildableName = "ProjectOrganizerUITests.xctest"
-               BlueprintName = "ProjectOrganizerUITests"
-               ReferencedContainer = "container:ProjectOrganizer.xcodeproj">
+               BuildableName = "MealOrganizerUITests.xctest"
+               BlueprintName = "MealOrganizerUITests"
+               ReferencedContainer = "container:MealOrganizer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6BC00F0C2603DD9700C76453"
-            BuildableName = "ProjectOrganizer.app"
-            BlueprintName = "ProjectOrganizer"
-            ReferencedContainer = "container:ProjectOrganizer.xcodeproj">
+            BuildableName = "MealOrganizer.app"
+            BlueprintName = "MealOrganizer"
+            ReferencedContainer = "container:MealOrganizer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -93,9 +93,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6BC00F0C2603DD9700C76453"
-            BuildableName = "ProjectOrganizer.app"
-            BlueprintName = "ProjectOrganizer"
-            ReferencedContainer = "container:ProjectOrganizer.xcodeproj">
+            BuildableName = "MealOrganizer.app"
+            BlueprintName = "MealOrganizer"
+            ReferencedContainer = "container:MealOrganizer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
