@@ -15,6 +15,7 @@ extension ProjectsView {
         
         var sortOrder = Item.SortOrder.optimized
         let showClosedProjects: Bool
+        
        
         private let projectController: NSFetchedResultsController<Project>
         @Published var projects = [Project]()
@@ -77,4 +78,8 @@ extension ProjectsView {
         }
     }
 }
+
+
+
+
 
