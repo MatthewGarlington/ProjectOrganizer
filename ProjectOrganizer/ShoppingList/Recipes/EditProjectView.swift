@@ -21,6 +21,7 @@ struct EditProjectView: View {
     @State private var color: String
     @State private var showingDeleteConfirm = false
     @State private var mealsThisWeek = false
+    @State private var showingClearConfirm = false
 
     @State private var engine = try? CHHapticEngine()
     
@@ -55,16 +56,12 @@ struct EditProjectView: View {
                 .padding(.vertical)
             }
             // section 3
-            Section(footer: Text("Closing a recipe moves it from the to get to already bought tab, deleting it removes the recipe entirely")) {
-                Button(project.closed ? "Add to Shopping List" : "Move To Purchased") {
+                Section(footer: Text("Clearing removes the recipe only from the Shopping List, Deleting the Recipe removes it entirely")) {
 
-                    toggleClosed()
-
-                }
-
-                Button(project.mealsThisWeek ? "Remove From Meals This Week Tab" : "Move To Meals This Week Tab") {
-                    project.mealsThisWeek.toggle()
-                }
+                    Button("Clear this recipe") {
+                        showingClearConfirm.toggle()
+                    }
+                    .accentColor(.secondary)
 
                 Button("Delete this recipe") {
                     showingDeleteConfirm.toggle()
@@ -97,6 +94,13 @@ struct EditProjectView: View {
                   message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
                   primaryButton: .default(Text("Delete"),
                                           action: delete),
+                  secondaryButton: .cancel())
+        }
+        .alert(isPresented: $showingClearConfirm) {
+            Alert(title: Text("Clear Recipe from the Shopping List?"),
+                  message: Text("Are you sure you want to remove this meal from the Shopping List?"),
+                  primaryButton: .default(Text("Clear"),
+                                          action: toggleClosed),
                   secondaryButton: .cancel())
         }
     }
