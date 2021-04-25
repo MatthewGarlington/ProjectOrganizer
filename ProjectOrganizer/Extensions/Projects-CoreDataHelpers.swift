@@ -35,7 +35,7 @@ extension Project {
         detail ?? ""
     }
     var projectColor: String {
-        color ?? "Green"
+        color ?? "Dark Blue"
     }
     var projectMeal: String {
         meal ?? "Breakfast"
