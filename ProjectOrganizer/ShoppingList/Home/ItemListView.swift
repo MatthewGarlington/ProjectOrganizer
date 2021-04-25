@@ -8,6 +8,10 @@
 import SwiftUI
 import CoreHaptics
 
+class UserInput: ObservableObject {
+    @Published var tabSelection: Int = 0
+}
+
 struct ItemListView: View {
     let title: LocalizedStringKey
     let items: ArraySlice<Item>
@@ -17,6 +21,8 @@ struct ItemListView: View {
     @Binding var rotateEffect: Bool
     @Binding var tapped: Int 
     let delaySeconds = 0.7
+    @Binding var noItem: Bool
+
  
 
     @State private var engine = try? CHHapticEngine()
@@ -24,6 +30,8 @@ struct ItemListView: View {
     var body: some View {
 
         if items.isEmpty {
+
+            VStack(spacing: 50) {
             ZStack(alignment: .center) {
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                     .fill(Color.black.opacity(0.4))
@@ -37,15 +45,32 @@ struct ItemListView: View {
                                     lineWidth: 2)
                     )
                 VStack {
-                    Text("Nothing To Show Right Now")
-                    Text("Add Recipes to get started!")
+                    Text("Nothing to show right now")
+                    Text("Add Ingredients to get started!")
+
 
                 }
 
                 .foregroundColor(.white)
                 .font(.title3)
                 .padding()
+
+
+
+
             }
+
+       
+            }
+            .onAppear(perform: {
+                if items.isEmpty {
+                self.noItem = true
+                }
+                if !items.isEmpty {
+                    self.noItem = false
+                }
+            })
+
 
         } else {
             
@@ -157,6 +182,15 @@ struct ItemListView: View {
                 .animation(Animation.easeOut(duration: 0.5))
 
             }
+
+            .onAppear(perform: {
+                if items.isEmpty {
+                self.noItem = true
+                }
+                if !items.isEmpty {
+                    self.noItem = false
+                }
+            })
         }
     }
 }
