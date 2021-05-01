@@ -29,7 +29,7 @@ struct ItemRowView: View {
         NavigationLink(destination: EditItemView(item: item)) {
             ZStack(alignment: .center) {
                 Label {
-                    VStack {
+                    VStack(alignment: .leading) {
                     HStack {
                         
                         Text(item.itemTitle).strikethrough(item.completed ? true : false)
@@ -45,6 +45,7 @@ struct ItemRowView: View {
                         if item.itemDetail.isEmpty == false {
                             Text("\(item.itemDetail)")
                                 .foregroundColor(.secondary)
+                                .padding(.horizontal)
                         }
 
 
@@ -72,13 +73,7 @@ struct ItemRowView: View {
                                 .foregroundColor(colorItem)
                                 .font(.system(size: 20))
                                 .frame(width: 35, height: 35)
-
-
-
                         )
-
-
-
 
                     .background(
                         ZStack {
