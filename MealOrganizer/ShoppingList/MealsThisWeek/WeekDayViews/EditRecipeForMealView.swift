@@ -63,12 +63,12 @@ struct EditRecipeForMealView: View {
 
             // section 4
             Section(header: Text("Move Recipe to unassigned")) {
-//                Button(action: {
-//                    toggleClosed()
-//                }, label: {
-//                    Text("Move to the Shopping List")
-//                        .opacity(!project.closed ? 1 : 0)
-//                })
+                Button(action: {
+                    toggleClosed()
+                }, label: {
+                    Text("Move to the Shopping List")
+                        .opacity(project.closed ? 1 : 0)
+                })
                 Button(action: {
                     project.mealsThisWeek = true
                     project.sundayAssignment = false

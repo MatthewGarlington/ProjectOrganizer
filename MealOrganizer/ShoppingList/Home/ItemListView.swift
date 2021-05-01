@@ -55,9 +55,6 @@ struct ItemListView: View {
                 .font(.title3)
                 .padding()
 
-
-
-
             }
 
        
@@ -84,9 +81,8 @@ struct ItemListView: View {
                         withAnimation {
                             toggleHomeItem()
                         }
-
+                        
                         func toggleHomeItem() {
-
                             item.completed = true
 
                                     self.tapped += 1
@@ -146,6 +142,7 @@ struct ItemListView: View {
                             .frame(width: 44, height: 44)
 
                     })
+                    .buttonStyle(DarkButtonStyle())
 
                     VStack(alignment: .leading) {
                         HStack(spacing: 5) {
@@ -174,10 +171,10 @@ struct ItemListView: View {
                 .padding()
                 .background(BlurView(style: .systemThinMaterial))
                 .cornerRadius(10)
-                .shadow(color: Color(item.project?.color ?? "Green").opacity(0.3), radius: 10, x: 5, y: 10)
+                .shadow(color: Color(item.project?.color ?? "Dark Blue").opacity(0.3), radius: 10, x: 5, y: 10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color(item.project?.projectColor ?? "Green")]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
+                        .stroke(LinearGradient(gradient: Gradient(colors: [Color.white, Color(item.project?.projectColor ?? "Dark Blue")]), startPoint: .leading, endPoint: .trailing), lineWidth: 2)
                 )
                 .animation(Animation.easeOut(duration: 0.5))
 

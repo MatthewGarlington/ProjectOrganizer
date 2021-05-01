@@ -13,6 +13,7 @@ struct HomeView: View {
     static let tag: String? = "Home"
     @StateObject var viewModel: ViewModel
     @EnvironmentObject var dataController: DataController
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var store = UserSettings()
 
 
@@ -43,6 +44,8 @@ struct HomeView: View {
     @State private var showDetail = false
     @State private var showAddScreen = false
     @State private var noItem = false
+    @State var tap = false
+    @State var press = false
     @Binding var tabSelection: Int
     let delaySeconds = 0.7
     
@@ -138,17 +141,14 @@ struct HomeView: View {
                             }, label: {
 
                                 ZStack {
-                                    Circle()
-                                        .fill(Color.black.opacity(0.5))
-                                        .frame(width: 50, height: 50)
-                                        .overlay(
-                                            Circle()
-                                                .stroke(lineWidth: 4)
-                                        )
                                     Image(systemName: "rosette")
                                         .font(.title)
+
                                 }
                             })
+                            .buttonStyle(DarkButtonStyle())
+
+
 
                             Button(action: {
                                 withAnimation {
@@ -160,17 +160,13 @@ struct HomeView: View {
                             }, label: {
 
                                 ZStack {
-                                    Circle()
-                                        .fill(Color.black.opacity(0.5))
-                                        .frame(width: 50, height: 50)
-                                        .overlay(
-                                            Circle()
-                                                .stroke(lineWidth: 4)
-                                        )
+
                                     Image(systemName: "gear")
                                         .font(.title)
                                 }
                             })
+                            .buttonStyle(DarkButtonStyle())
+
                         }
                         .padding(.horizontal)
 
@@ -190,9 +186,11 @@ struct HomeView: View {
                                         },label: {
                                             ZStack(alignment: .center) {
                                             RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                                .fill(Color.black.opacity(0.4))
+                                                .fill(colorScheme == .dark ? Color.darkEnd : Color.offWhite)
                                                 .frame(maxWidth: .infinity)
                                                 .frame(height: 150)
+                                                .shadow(color: colorScheme == .dark ? Color.darkStart : Color.black.opacity(0.2), radius: 10, x: colorScheme == .dark ? 5 : -5, y:  colorScheme == .dark ?  5 : -5)
+                                                .shadow(color: colorScheme == .dark ? Color.darkEnd : Color.white.opacity(0.7), radius: 10, x: colorScheme == .dark ? -5 : 10, y: colorScheme == .dark ? -5 : 10)
                                                 .overlay(
                                                     RoundedRectangle(cornerRadius: 25.0, style: .continuous)
                                                         .stroke(LinearGradient(gradient: Gradient(colors: [Color.white,
@@ -201,14 +199,12 @@ struct HomeView: View {
                                                                 lineWidth: 2)
 
                                                 )
-                                                .shadow(color: Color(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)).opacity(0.3), radius: 20, x: 20, y: 0)
 
                                            Text("Add Ingredient")
                                             .padding()
                                         }
                                         })
 
-                                    .foregroundColor(.white)
                                     .font(.title3)
                                     .padding()
 
@@ -255,6 +251,88 @@ struct HomeView: View {
         }
     }
 }
+extension Color {
+    static let offWhite = Color(red: 225 / 255, green: 225 / 255, blue: 235 / 255)
+    static let darkStart = Color(red: 50 / 255, green: 60 / 255, blue: 65 / 255)
+    static let darkEnd = Color(red: 25 / 255, green: 25 / 255, blue: 30 / 255)
+    static let lightStart = Color(red: 60 / 255, green: 160 / 255, blue: 240 / 255)
+    static let lightEnd = Color(red: 30 / 255, green: 80 / 255, blue: 120 / 255)
+}
+
+extension LinearGradient {
+    init(_ colors: Color...) {
+        self.init(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+}
+
+struct SimpleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding(10)
+              .background(
+                  Group {
+                    if configuration.isPressed {
+                        Circle()
+                        Circle()
+                            .fill(Color.darkStart)
+                            .shadow(color: Color.darkStart, radius: 10, x: 2, y: 2)
+                            .shadow(color: Color.darkEnd, radius: 10, x: -10, y: -10)
+
+                    } else {
+                        Circle()
+                            .fill(Color.darkEnd)
+                            .shadow(color: Color.darkStart, radius: 10, x: -2, y: -2)
+                            .shadow(color: Color.darkEnd, radius: 10, x: 10, y: 10)
+                    }
+                  }
+              )
+    }
+}
+
+struct DarkBackground<S: Shape>: View {
+    @Environment(\.colorScheme) var colorScheme
+    var isHighlighted: Bool
+    var shape: S
+    @State private var tap = false
+
+    var body: some View {
+        ZStack {
+            if isHighlighted {
+
+
+                shape
+                    
+                    .fill(colorScheme == .dark ? LinearGradient(Color.darkEnd, Color.darkStart) :  LinearGradient(Color.offWhite, Color.white))
+                    .shadow(color: colorScheme == .dark ? Color.darkStart : Color.black.opacity(0.2), radius: 10, x: colorScheme == .dark ? 2 : -5, y:  colorScheme == .dark ?  2 : -5)
+                    .shadow(color: colorScheme == .dark ? Color.darkEnd : Color.white.opacity(0.7), radius: 10, x: colorScheme == .dark ? -2 : 10, y: colorScheme == .dark ? -2 : 10)
+                    .scaleEffect(CGSize(width: 0.8, height: 0.8))
+                 
+
+
+
+            } else {
+                shape
+                    .fill(colorScheme == .dark ? LinearGradient(Color.darkEnd, Color.darkStart) :  LinearGradient(Color.offWhite, Color.white))
+                    .shadow(color: colorScheme == .dark ? Color.darkStart :Color.black.opacity(0.2), radius: 10, x: colorScheme == .dark ? -5 : 10, y:  colorScheme == .dark ? -5 : 10)
+                    .shadow(color: colorScheme == .dark ? Color.darkEnd : Color.white.opacity(0.7), radius: 10, x: colorScheme == .dark ? 5 : -5, y:  colorScheme == .dark ? 5 : -5)
+                    .overlay(shape.stroke(colorScheme == .dark ? Color.darkEnd : Color.clear, lineWidth: 4))
+            }
+        }
+    }
+}
+
+struct DarkButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .padding(10)
+            .contentShape(Circle())
+            .background(
+                DarkBackground(isHighlighted: configuration.isPressed, shape: Circle())
+            )
+    }
+}
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
