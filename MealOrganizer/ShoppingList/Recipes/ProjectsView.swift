@@ -39,7 +39,7 @@ struct ProjectsView: View {
 
                             if viewModel.showClosedProjects == false {
                                 Button {
-                                    withAnimation {
+                                    withAnimation((.linear)) {
                                         viewModel.addItem(to: project)
 
                                     }
