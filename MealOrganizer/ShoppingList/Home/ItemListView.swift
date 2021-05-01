@@ -23,7 +23,7 @@ struct ItemListView: View {
     let delaySeconds = 0.7
     @Binding var noItem: Bool
 
- 
+
 
     @State private var engine = try? CHHapticEngine()
     
@@ -32,36 +32,31 @@ struct ItemListView: View {
         if items.isEmpty {
 
             VStack(spacing: 50) {
-            ZStack(alignment: .center) {
-                RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .fill(Color.black.opacity(0.4))
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 100)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .stroke(LinearGradient(gradient: Gradient(colors: [Color.white,
-                                                                               Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1))]),
-                                                   startPoint: .leading, endPoint: .trailing),
-                                    lineWidth: 2)
-                    )
-                VStack {
-                    Text("Nothing to show right now")
-                    Text("Add Ingredients to get started!")
+                ZStack(alignment: .center) {
+                    RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                        .fill(Color.black.opacity(0.4))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 100)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .stroke(LinearGradient(gradient: Gradient(colors: [Color.white,
+                                                                                   Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1))]),
+                                                       startPoint: .leading, endPoint: .trailing),
+                                        lineWidth: 2)
+                        )
+                    VStack {
+                        Text("Nothing to show right now")
+                        Text("Add Ingredients to get started!")
+                    }
 
-
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .padding()
                 }
-
-                .foregroundColor(.white)
-                .font(.title3)
-                .padding()
-
-            }
-
-       
             }
             .onAppear(perform: {
                 if items.isEmpty {
-                self.noItem = true
+                    self.noItem = true
                 }
                 if !items.isEmpty {
                     self.noItem = false
@@ -85,10 +80,10 @@ struct ItemListView: View {
                         func toggleHomeItem() {
                             item.completed = true
 
-                                    self.tapped += 1
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + self.delaySeconds) {
-                                        self.tapped = 0
-                                    }
+                            self.tapped += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + self.delaySeconds) {
+                                self.tapped = 0
+                            }
 
 
                             if item.completed {
@@ -182,7 +177,7 @@ struct ItemListView: View {
 
             .onAppear(perform: {
                 if items.isEmpty {
-                self.noItem = true
+                    self.noItem = true
                 }
                 if !items.isEmpty {
                     self.noItem = false

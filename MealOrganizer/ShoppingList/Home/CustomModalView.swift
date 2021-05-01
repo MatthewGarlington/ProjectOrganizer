@@ -31,7 +31,6 @@ enum DragState {
             return false
         }
     }
-
 }
 
 struct SettingsDetailView: View {
@@ -129,9 +128,6 @@ struct SettingsDetailView_Previews: PreviewProvider {
         SettingsDetailView(isShow: .constant(true))
             .background(Color.black.opacity(0.3))
             .edgesIgnoringSafeArea(.all)
-
-
-
     }
 }
 
@@ -328,7 +324,7 @@ struct UserDefaultsView: View {
             store.backGroundColorCustom  = item
         }
     }
-
+    
     func colorForegroundButton(for item: String) -> some View {
         ZStack {
             Color(item)

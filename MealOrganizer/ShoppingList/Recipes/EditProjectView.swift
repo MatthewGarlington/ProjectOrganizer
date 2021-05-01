@@ -66,6 +66,21 @@ struct EditProjectView: View {
                 }
                 .accentColor(.red)
             }
+                .alert(isPresented: $showingClearConfirm) {
+                    Alert(title: Text("Clear Recipe from the Shopping List?"),
+                          message: Text("Are you sure you want to remove this meal from the Shopping List?"),
+                          primaryButton: .default(Text("Clear"),
+                                                  action: toggleClosed),
+                          secondaryButton: .cancel())
+                }
+
+        }
+        .alert(isPresented: $showingDeleteConfirm) {
+            Alert(title: Text("Delete Recipe?"),
+                  message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
+                  primaryButton: .default(Text("Delete"),
+                                          action: delete),
+                  secondaryButton: .cancel())
         }
         .navigationTitle("Edit Recipe")
         .navigationBarItems(trailing:
@@ -87,20 +102,8 @@ struct EditProjectView: View {
             dataController.save()
 
         }
-        .alert(isPresented: $showingDeleteConfirm) {
-            Alert(title: Text("Delete Recipe?"),
-                  message: Text("Are you sure you want to delete this recipe? You will also delete all the ingredients within the recipe it contains."),
-                  primaryButton: .default(Text("Delete"),
-                                          action: delete),
-                  secondaryButton: .cancel())
-        }
-        .alert(isPresented: $showingClearConfirm) {
-            Alert(title: Text("Clear Recipe from the Shopping List?"),
-                  message: Text("Are you sure you want to remove this meal from the Shopping List?"),
-                  primaryButton: .default(Text("Clear"),
-                                          action: toggleClosed),
-                  secondaryButton: .cancel())
-        }
+
+
     }
     
     func update() {
@@ -116,6 +119,7 @@ struct EditProjectView: View {
 
     func toggleClosed() {
         project.closed.toggle()
+        presentationMode.wrappedValue.dismiss()
 
         if project.closed {
             // Trigger Custom Haptics

@@ -77,6 +77,8 @@
 		6BC00F7D2603EEAF00C76453 /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BC00F7C2603EEAF00C76453 /* DecodableString.json */; };
 		6BC00F7F2603FB7000C76453 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC00F7E2603FB7000C76453 /* PerformanceTests.swift */; };
 		6BC00F872604185600C76453 /* ProjectOrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC00F862604185600C76453 /* ProjectOrganizerUITests.swift */; };
+		6BCF0836263DCA7800F57A22 /* PurchasedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF0835263DCA7800F57A22 /* PurchasedListView.swift */; };
+		6BCF0838263DCAD200F57A22 /* Button-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCF0837263DCAD200F57A22 /* Button-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		6BC00F842604185600C76453 /* MealOrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealOrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC00F862604185600C76453 /* ProjectOrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOrganizerUITests.swift; sourceTree = "<group>"; };
 		6BC00F882604185600C76453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BCF0835263DCA7800F57A22 /* PurchasedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedListView.swift; sourceTree = "<group>"; };
+		6BCF0837263DCAD200F57A22 /* Button-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +310,7 @@
 			children = (
 				6BC00F232603E30100C76453 /* Home */,
 				6BC00F242603E30A00C76453 /* Recipes */,
+				6BCF0834263DCA2400F57A22 /* Purchased */,
 				6B5850DE261A704F00DDA49F /* SavedRecipe */,
 				6B5850E72620872500DDA49F /* MealsThisWeek */,
 				6BC00F252603E31100C76453 /* Awards */,
@@ -330,10 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				6BC00F2C2603E37D00C76453 /* ProjectsView.swift */,
-				6B14B0D926348C4000370CA6 /* PurchasedView.swift */,
 				6BC00F2E2603E39100C76453 /* SelectSomethingView.swift */,
 				6B8EE78E2617776500F95B9A /* ProjectsViewModel.swift */,
-				6B14B0D726348C1600370CA6 /* PurchasedViewModel.swift */,
 				6BC00F302603E39F00C76453 /* ProjectHeaderView.swift */,
 				6BC00F322603E3AE00C76453 /* ItemRowView.swift */,
 				6B5850D3261881B900DDA49F /* ItemRowViewModel.swift */,
@@ -380,6 +383,7 @@
 				6BC00F542603E7A000C76453 /* Color-Additions.swift */,
 				6BC00F562603E7B900C76453 /* Projects-CoreDataHelpers.swift */,
 				6BC00F582603E7C800C76453 /* Item-CoreDataHelpers.swift */,
+				6BCF0837263DCAD200F57A22 /* Button-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -416,6 +420,16 @@
 				6BC00F882604185600C76453 /* Info.plist */,
 			);
 			path = ProjectOrganizerUITests;
+			sourceTree = "<group>";
+		};
+		6BCF0834263DCA2400F57A22 /* Purchased */ = {
+			isa = PBXGroup;
+			children = (
+				6B14B0D726348C1600370CA6 /* PurchasedViewModel.swift */,
+				6B14B0D926348C4000370CA6 /* PurchasedView.swift */,
+				6BCF0835263DCA7800F57A22 /* PurchasedListView.swift */,
+			);
+			path = Purchased;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,6 +586,7 @@
 				6B31AB8A2620D458004E240A /* EditRecipeForThisWeek.swift in Sources */,
 				6BC00F552603E7A000C76453 /* Color-Additions.swift in Sources */,
 				6B31AB9B26223269004E240A /* WednesdayListSectionViewModel.swift in Sources */,
+				6BCF0838263DCAD200F57A22 /* Button-Extension.swift in Sources */,
 				6B5850E2261A70EF00DDA49F /* SavedRecipeViewModel.swift in Sources */,
 				6B31AB982622324F004E240A /* TuesdayListSectionViewModel.swift in Sources */,
 				6B5850D22617A08000DDA49F /* HomeViewModel.swift in Sources */,
@@ -584,6 +599,7 @@
 				6B91D68B262DC48D00226D1E /* FridayListSectionView.swift in Sources */,
 				6B31AB862620BC62004E240A /* RecipesForTheWeekViewModel.swift in Sources */,
 				6B31AB882620C0C6004E240A /* RecipesForThisWeekHeaderView.swift in Sources */,
+				6BCF0836263DCA7800F57A22 /* PurchasedListView.swift in Sources */,
 				6BC00F372603E3D000C76453 /* EditItemView.swift in Sources */,
 				6BC00F4A2603E61500C76453 /* Main.xcdatamodeld in Sources */,
 				6BC00F312603E39F00C76453 /* ProjectHeaderView.swift in Sources */,
