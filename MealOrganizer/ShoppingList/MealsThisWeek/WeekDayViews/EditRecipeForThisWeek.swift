@@ -28,6 +28,10 @@ struct EditRecipeForThisWeek: View {
     let colorColums = [
         GridItem(.adaptive(minimum: 44))
     ]
+    let meals = [
+        "Breakfast", "Lunch", "Dinner"
+    ]
+
 
     init(project: Project) {
         self.project = project
@@ -43,102 +47,15 @@ struct EditRecipeForThisWeek: View {
             Section(header: Text("Basic Settings")) {
                 TextField("Recipe name", text: $title.onChange(update))
                 TextField("Description of this Recipe", text: $detail.onChange(update))
+                Picker("Meal Type", selection: $meal.onChange(update)) {
+                    ForEach(meals, id: \.self) {
+                        Text($0)
+                    }
+                }
 
             }
             // Section 3, Choose a Day
-
-            Section(header: Text("Choose a Day for the Meal to be made on this week.")) {
-
-                if project.sundayAssignment {
-
-                    Toggle(isOn: $project.sundayAssignment) {
-                        Text("Sunday")
-                    }
-                }
-                else if project.mondayAssignment {
-                    Toggle(isOn: $project.mondayAssignment) {
-                        Text("Monday")
-                    }
-                }
-                else if project.tuesdayAssignment {
-
-                    Toggle(isOn: $project.tuesdayAssignment) {
-                        Text("Tuesday")
-                    }
-                }
-                else if project.wednesdayAssignment {
-
-                    Toggle(isOn: $project.wednesdayAssignment) {
-                        Text("Wednesday")
-                    }
-                }
-
-                else if project.thursdayAssignment {
-
-                    Toggle(isOn: $project.thursdayAssignment) {
-                        Text("Thursday")
-                    }
-                }
-
-                else if project.fridayAssignment {
-
-                    Toggle(isOn: $project.fridayAssignment) {
-                        Text("Friday")
-                    }
-                }
-                else if project.saturdayAssignment {
-
-                    Toggle(isOn: $project.saturdayAssignment) {
-                        Text("Saturday")
-                    }
-
-                } else {
-                    Toggle(isOn: $project.sundayAssignment) {
-                        Text("Sunday")
-                    }
-                    Toggle(isOn: $project.mondayAssignment) {
-                        Text("Monday")
-                    }
-                    Toggle(isOn: $project.tuesdayAssignment) {
-                        Text("Tuesday")
-                    }
-                    Toggle(isOn: $project.wednesdayAssignment) {
-                        Text("Wednesday")
-                    }
-                    Toggle(isOn: $project.thursdayAssignment) {
-                        Text("Thursday")
-                    }
-                    Toggle(isOn: $project.fridayAssignment) {
-                        Text("Friday")
-                    }
-                    Toggle(isOn: $project.saturdayAssignment) {
-                        Text("Saturday")
-                    }
-                    .onDisappear {
-                        if project.mealsThisWeek && project.sundayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                        else if project.mealsThisWeek && project.mondayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                        else if project.mealsThisWeek && project.tuesdayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                        else if project.mealsThisWeek && project.wednesdayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                        else if project.mealsThisWeek && project.thursdayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                        else if project.mealsThisWeek && project.fridayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                        else if project.mealsThisWeek && project.saturdayAssignment {
-                            project.mealsThisWeek = false
-                        }
-                    }
-                }
-            }
+            ChooseDay(project: project)
 
             // section 4
             Section(footer: Text("Clearing removes the recipe from the Shopping List Tab, deleting it removes the recipe entirely")) {
@@ -256,6 +173,110 @@ struct EditRecipeForThisWeek: View {
 struct EditRecipeForThisWeek_Previews: PreviewProvider {
     static var previews: some View {
         EditRecipeForThisWeek(project: Project.example)
+    }
+}
+
+struct ChooseDay: View {
+    @ObservedObject var project: Project
+    var body: some View {
+
+        Section(header: Text("Choose a Day for the Meal to be made on this week.")) {
+
+            if project.sundayAssignment {
+
+                Toggle(isOn: $project.sundayAssignment) {
+                    Text("Sunday")
+                }
+            }
+            else if project.mondayAssignment {
+                Toggle(isOn: $project.mondayAssignment) {
+                    Text("Monday")
+                }
+            }
+            else if project.tuesdayAssignment {
+
+                Toggle(isOn: $project.tuesdayAssignment) {
+                    Text("Tuesday")
+                }
+            }
+            else if project.wednesdayAssignment {
+
+                Toggle(isOn: $project.wednesdayAssignment) {
+                    Text("Wednesday")
+                }
+            }
+
+            else if project.thursdayAssignment {
+
+                Toggle(isOn: $project.thursdayAssignment) {
+                    Text("Thursday")
+                }
+            }
+
+            else if project.fridayAssignment {
+
+                Toggle(isOn: $project.fridayAssignment) {
+                    Text("Friday")
+                }
+            }
+            else if project.saturdayAssignment {
+
+                Toggle(isOn: $project.saturdayAssignment) {
+                    Text("Saturday")
+                }
+
+            } else {
+
+               
+                Toggle(isOn: $project.sundayAssignment) {
+                    Text("Sunday")
+                }
+                Toggle(isOn: $project.mondayAssignment) {
+                    Text("Monday")
+                }
+                Toggle(isOn: $project.tuesdayAssignment) {
+                    Text("Tuesday")
+                }
+                Toggle(isOn: $project.wednesdayAssignment) {
+                    Text("Wednesday")
+                }
+                Toggle(isOn: $project.thursdayAssignment) {
+                    Text("Thursday")
+                }
+                Toggle(isOn: $project.fridayAssignment) {
+                    Text("Friday")
+                }
+                Toggle(isOn: $project.saturdayAssignment) {
+                    Text("Saturday")
+                }
+                .onDisappear {
+                    if project.mealsThisWeek && project.sundayAssignment {
+                        project.mealsThisWeek = false
+                    }
+                    else if project.mealsThisWeek && project.mondayAssignment {
+                        project.mealsThisWeek = false
+                    }
+                    else if project.mealsThisWeek && project.tuesdayAssignment {
+                        project.mealsThisWeek = false
+                    }
+                    else if project.mealsThisWeek && project.wednesdayAssignment {
+                        project.mealsThisWeek = false
+                    }
+                    else if project.mealsThisWeek && project.thursdayAssignment {
+                        project.mealsThisWeek = false
+                    }
+                    else if project.mealsThisWeek && project.fridayAssignment {
+                        project.mealsThisWeek = false
+                    }
+                    else if project.mealsThisWeek && project.saturdayAssignment {
+                        project.mealsThisWeek = false
+                    } else {
+                        project.mealsThisWeek = true 
+                    }
+                }
+            }
+
+        }
     }
 }
 

@@ -46,7 +46,10 @@ struct EditRecipeForMealView: View {
 
     var body: some View {
         Form {
-            // section 1 (Basic Settings)
+
+
+
+            // section 2 (Basic Settings)
             Section(header: Text("Basic Settings")) {
                 TextField("Recipe name", text: $title.onChange(update))
                 TextField("Description of this Recipe", text: $detail.onChange(update))
@@ -58,38 +61,19 @@ struct EditRecipeForMealView: View {
                     }
                 }
             }
+            // Section 1, Choose a Day
+            ChooseDay(project: project)
 
 
 
             // section 4
-            Section(header: Text("Move Recipe to unassigned")) {
+            Section(header: Text("Move Recipe to Shopping List")) {
                 Button(action: {
                     toggleClosed()
                 }, label: {
-                    Text("Move to the Shopping List")
-                        .opacity(project.closed ? 1 : 0)
+                    Text(project.closed ? "Move to Shopping List": "Remove from Shopping List")
                 })
-                Button(action: {
-                    project.mealsThisWeek = true
-                    project.sundayAssignment = false
-                    project.mondayAssignment = false
-                    project.tuesdayAssignment = false
-                    project.wednesdayAssignment = false
-                    project.thursdayAssignment = false
-                    project.fridayAssignment = false
-                    project.saturdayAssignment = false
 
-                }, label: {
-
-                    HStack {
-                        Text(project.mealsThisWeek ? "Moved to Unassigned": "Move to Unassigned")
-                        Spacer()
-                        Image(systemName: project.mealsThisWeek ?  "checkmark.circle" : "circle")
-                    }
-                    .foregroundColor(Color(project.mealsThisWeek ? .clear : .secondaryLabel))
-
-                }
-                )
 
             }
                 Section(footer: Text("Clearing removes the recipe from the Meals This Week")) {
@@ -135,7 +119,7 @@ struct EditRecipeForMealView: View {
     }
 
     func toggleClosed() {
-        project.closed = false
+        project.closed.toggle()
 
             if !project.closed {
                // Trigger Custom Haptics
