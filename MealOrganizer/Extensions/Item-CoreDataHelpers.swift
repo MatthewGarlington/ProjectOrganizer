@@ -13,7 +13,7 @@ extension Item {
         case optimized, title, creationDate
     }
     var itemTitle: String {
-        title ?? NSLocalizedString("New Ingredient", comment: "Add a new New ingredient")
+        title ?? NSLocalizedString("", comment: "Add a new New ingredient")
     }
     var itemDetail: String {
         detail ?? ""
